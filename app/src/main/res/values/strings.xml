@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">ARCHI_LOG_Demassue_Piron</string>
+
+    <!-- layout/activity_main.xml -->
+    <string name="mainActivity_mainTitle_FR">Bonjour ! </string>
+    <string name="mainActivity_explanations_FR">Comment voulez-vous accéder à l\'application ? </string>
+    <string name="mainActivity_signIn_FR">Connexion</string>
+
+    <!-- layout/activity_signin.xml -->
+    <string name="signInActivity_title_FR">Connexion</string>
+    <string name="signInActivity_email_FR">Email</string>
+    <string name="signInActivity_password_FR">Mot de passe</string>
+    <string name="signInActivity_toastTextOnData_FR">Veuillez vérifier les données du formulaire.</string>
+    <string name="signInActivity_toastTextOnConnexion_FR">Connexion impossible. Veuillez réessayer plus tard.</string>
+
+    <!-- menu/bottom_navigation.xml -->
+    <string name="bottomNavigation_home_FR">Home</string>
+    <string name="bottomNavigation_map_FR">Carte</string>
+    <string name="bottomNavigation_messages_FR">Messages</string>
+    <string name="bottomNavigation_settings_FR">Paramètres</string>
+
+    <!-- model/ExpandableListData.java -->
+    <string name="expandableListData_myEstate_FR">Mes biens</string>
+    <string name="expandableListData_estateFromOther_FR">Les biens dont je m\'occupe</string>
+
+    <!-- model/MapFragment.java -->
+    <string name="mapFragment_currentLocation_FR">Vous êtes ici</string>
+    <string name="mapFragment_errorLocation_FR">Une erreur est survenue lors de la localisation. Merci de réessayer plus tard.</string>
+
+    <!-- model/MessagesActivity.java -->
+    <string name="messagesActivity_lengthMessage_FR">Votre message est vide !</string>
+
+    <!-- layout/activity_housedetails.xml -->
+    <string name="houseDetails_descriptionPassage_FR">Qu\'avez-vous fait pendant votre passage ? </string>
+    <string name="houseDetails_titlePassage_FR">Ajouter un passage</string>
+    <string name="houseDetails_instructions_FR">Consignes</string>
+    <string name="houseDetails_iTakeCareOfTheHouse_FR">Je m\'en suis occupé</string>
+    <string name="houseDetails_instructionsRating_FR">Évaluer les consignes mises à ma disposition</string>
+    <string name="houseDetails_sendNote_FR">Envoyer ma note</string>
+    <string name="houseDetails_noteComment_FR">Pourquoi avez-vous attribué cette note ? </string>
+
+    <!-- layout/activity_rateservant.xml -->
+    <string name="rateServant_rating_FR">Évaluez la personne qui s\'occupe de votre bien</string>
+    <string name="rateServant_sendNote_FR">Envoyer ma note</string>
+    <string name="rateServant_noteComment_FR">Pourquoi avez-vous attribué cette note ? </string>
+
+    <!-- layout/fragment_settings.xml -->
+    <string name="settings_title_FR">Paramètres</string>
+    <string name="settings_disconnect_FR">Déconnexion</string>
+
+    <!-- layout/activity_messages.xml -->
+    <string name="messages_hint_FR">Message...</string>
+
+</resources>

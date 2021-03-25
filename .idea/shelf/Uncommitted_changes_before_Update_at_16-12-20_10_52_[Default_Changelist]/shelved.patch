@@ -1,0 +1,1797 @@
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/DetailHouseFragment.java
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/DetailHouseFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/DetailHouseFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
+@@ -1,7 +0,0 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
+-
+-import androidx.fragment.app.Fragment;
+-
+-public class DetailHouseFragment extends Fragment {
+-
+-}
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableListData.java
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableListData.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableListData.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
+@@ -1,39 +0,0 @@
+-package com.archilog.archi_log_demassue_piron.Model;
+-
+-import java.util.ArrayList;
+-import java.util.HashMap;
+-import java.util.List;
+-
+-public class ExpandableListData {
+-
+-    private static List<String> myEstate;
+-    private static List<String> estateFromOthers;
+-    private static List<String> listOfVisits;
+-
+-    public ExpandableListData() {
+-        myEstate = new ArrayList<String>();
+-        estateFromOthers = new ArrayList<String>();
+-        listOfVisits = new ArrayList<String>();
+-    }
+-
+-    //TODO Ajouter les biens grâce à la requête HTTP
+-    public static HashMap<String, List<String>> getEstateForFirstPage() {
+-
+-        HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+-
+-        expandableListDetail.put("Mes biens", myEstate); //TODO A modifier pour la gestion du multi-linguisme
+-        expandableListDetail.put("Les biens dont je m'occupe", estateFromOthers); //TODO A modifier pour la gestion du multi-linguisme
+-
+-        return expandableListDetail;
+-    }
+-
+-    //TODO Ajouter les biens grâce à la requête HTTP
+-    public static HashMap<String, List<String>> getVisitsForAHouse() {
+-
+-        HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+-
+-        expandableListDetail.put("Liste des passages", listOfVisits); //TODO A modifier pour la gestion du multi-linguisme
+-
+-        return expandableListDetail;
+-    }
+-}
+Index: app/src/main/res/layout/fragment_ratingowner.xml
+===================================================================
+--- app/src/main/res/layout/fragment_ratingowner.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/fragment_ratingowner.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
+@@ -1,72 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout
+-        xmlns:android="http://schemas.android.com/apk/res/android"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent">
+-
+-    <ScrollView
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent">
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical">
+-            <TextView
+-                android:text="TextView"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/fragment_ratingowner_houseFrom"
+-                android:textAlignment="center"
+-                android:textStyle="bold"
+-                android:textSize="20sp"/>
+-            <TextView
+-                android:text="TextView"
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:id="@+id/fragment_ratingowner_houseFromAddress"
+-                android:textAlignment="center"/>
+-            <TextView
+-                android:text="@string/ratingOwner_rating_FR"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/fragment_ratingowner_titleRatingBar"
+-                android:textAlignment="center"
+-                android:textStyle="bold"
+-                android:textSize="18sp"
+-                android:layout_marginTop="20sp"/>
+-            <TextView
+-                android:text="TextView"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/fragment_ratingowner_nameOf"
+-                android:textAlignment="center"
+-                android:textStyle="bold"
+-                android:textSize="18sp"
+-                android:layout_marginTop="20sp"/>
+-            <RatingBar
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/fragment_ratingowner_ratingBar"
+-                android:numStars="5"/>
+-            <Button
+-                android:text="@string/ratingOwner_sendMessage_FR"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/fragment_ratingowner_btn_sendMessage"
+-                android:layout_marginTop="20sp"
+-                android:background="@color/colorPrimary" android:layout_marginLeft="5sp"
+-                android:layout_marginRight="5sp"/>
+-
+-            <ExpandableListView
+-                android:id="@+id/fragment_ratingOwner_expandableListView"
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:indicatorLeft="?android:expandableListPreferredChildIndicatorLeft"
+-                android:divider="@android:color/darker_gray"
+-                android:dividerHeight="0.5dp"
+-                android:layout_marginTop="20dp"/>
+-        </LinearLayout>
+-    </ScrollView>
+-
+-
+-</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/UsersFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport com.archilog.archi_log_demassue_piron.Adapter.UserAdapter;\r\nimport com.archilog.archi_log_demassue_piron.Model.User;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.*;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class UsersFragment extends Fragment {\r\n\r\n    private RecyclerView recyclerView;\r\n    private List<User> users;\r\n    private UserAdapter userAdapter;\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_users, container, false);\r\n\r\n        users = new ArrayList<>();\r\n\r\n        LinearLayoutManager manager = new LinearLayoutManager(view.getContext());\r\n        manager.setOrientation(LinearLayoutManager.VERTICAL);\r\n\r\n        recyclerView = view.findViewById(R.id.fragment_users_recycler_view);\r\n        recyclerView.setHasFixedSize(true);\r\n        recyclerView.setLayoutManager(manager);\r\n\r\n        loadUsersFromFirebase();\r\n\r\n        return view;\r\n    }\r\n\r\n    private void loadUsersFromFirebase() {\r\n        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();\r\n        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(\"Users\");\r\n\r\n        reference.addValueEventListener(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(DataSnapshot dataSnapshot) {\r\n                users.clear();\r\n                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {\r\n                    User user = snapshot.getValue(User.class);\r\n                    //if(user.getId().equals(firebaseUser.getUid())) {\r\n                        users.add(user);\r\n                    //}\r\n                }\r\n\r\n                userAdapter = new UserAdapter(getContext(), users);\r\n                recyclerView.setAdapter(userAdapter);\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(DatabaseError error) {\r\n\r\n            }\r\n        });\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/UsersFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/UsersFragment.java	(date 1606496257960)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+@@ -7,8 +7,8 @@
+ import androidx.fragment.app.Fragment;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+-import com.archilog.archi_log_demassue_piron.Adapter.UserAdapter;
+-import com.archilog.archi_log_demassue_piron.Model.User;
++import com.archilog.archi_log_demassue_piron.Model.Adapter.UserAdapter;
++import com.archilog.archi_log_demassue_piron.Model.Chat.User;
+ import com.archilog.archi_log_demassue_piron.R;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Adapter/ChatAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Adapter;\r\n\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport com.archilog.archi_log_demassue_piron.Activities.MessagesActivity;\r\nimport com.archilog.archi_log_demassue_piron.Model.Chat;\r\nimport com.archilog.archi_log_demassue_piron.Model.User;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\n\r\nimport java.util.List;\r\n\r\npublic class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {\r\n\r\n    public static final int MESSAGE_TYPE_LEFT = 0;\r\n    public static final int MESSAGE_TYPE_RIGHT = 1;\r\n\r\n    private Context context;\r\n    private List<Chat> chat;\r\n    private String imageURL;\r\n\r\n    private FirebaseUser firebaseUser;\r\n\r\n    public ChatAdapter(Context context, List<Chat> chat, String imageURL) {\r\n        this.context = context;\r\n        this.chat = chat;\r\n        this.imageURL = imageURL;\r\n    }\r\n\r\n    @Override\r\n    public ChatAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {\r\n        View view;\r\n\r\n        if(viewType == MESSAGE_TYPE_RIGHT) {\r\n            view = LayoutInflater.from(context).inflate(R.layout.chat_item_right, parent, false);\r\n        } else {\r\n            view = LayoutInflater.from(context).inflate(R.layout.chat_item_left, parent, false);\r\n        }\r\n\r\n        return new ChatAdapter.ViewHolder(view);\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(ChatAdapter.ViewHolder holder, int position) {\r\n        Chat chat = this.chat.get(position);\r\n        holder.message_toShow.setText(chat.getMessage());\r\n\r\n        if(imageURL.equals(\"default\")) {\r\n            holder.profile_image.setImageResource(R.drawable.person);\r\n        } else {\r\n            holder.profile_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return chat.size();\r\n    }\r\n\r\n    @Override\r\n    public int getItemViewType(int position) {\r\n        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();\r\n        if(chat.get(position).getSender().equals(firebaseUser.getUid())) {\r\n            return MESSAGE_TYPE_RIGHT;\r\n        } else {\r\n            return MESSAGE_TYPE_LEFT;\r\n        }\r\n    }\r\n\r\n    public class ViewHolder extends RecyclerView.ViewHolder {\r\n        private TextView message_toShow;\r\n        private ImageView profile_image;\r\n\r\n        public ViewHolder(View view) {\r\n            super(view);\r\n\r\n            message_toShow = view.findViewById(R.id.chat_item_message_content);\r\n            profile_image = view.findViewById(R.id.chat_item_profile_image);\r\n        }\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Adapter/ChatAdapter.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Adapter/ChatAdapter.java	(date 1608027038251)
+@@ -1,16 +1,13 @@
+-package com.archilog.archi_log_demassue_piron.Adapter;
++package com.archilog.archi_log_demassue_piron.Model.Adapter;
+ 
+ import android.content.Context;
+-import android.content.Intent;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.widget.ImageView;
+ import android.widget.TextView;
+ import androidx.recyclerview.widget.RecyclerView;
+-import com.archilog.archi_log_demassue_piron.Activities.MessagesActivity;
+-import com.archilog.archi_log_demassue_piron.Model.Chat;
+-import com.archilog.archi_log_demassue_piron.Model.User;
++import com.archilog.archi_log_demassue_piron.Model.Chat.Chat;
+ import com.archilog.archi_log_demassue_piron.R;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+@@ -55,7 +52,7 @@
+         if(imageURL.equals("default")) {
+             holder.profile_image.setImageResource(R.drawable.person);
+         } else {
+-            holder.profile_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur
++            holder.profile_image.setImageResource(R.drawable.person);
+         }
+     }
+ 
+Index: app/src/main/res/layout/activity_messages.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:background=\"#eeeeee\"\r\n    tools:context=\".Activities.MessagesActivity\">\r\n\r\n    <androidx.appcompat.widget.Toolbar\r\n        android:id=\"@+id/message_activity_toolbar\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:background=\"@color/colorPrimary\"\r\n        android:padding=\"5dp\">\r\n        <ImageView\r\n            android:layout_width=\"50dp\"\r\n            android:layout_height=\"50dp\"\r\n            android:id=\"@+id/message_activity_profile_image\"\r\n            android:src=\"@drawable/person\"/>\r\n\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:id=\"@+id/message_activity_profile_name\"\r\n            android:layout_toRightOf=\"@+id/message_activity_profile_image\"\r\n            android:layout_toEndOf=\"@id/message_activity_profile_image\"\r\n            android:layout_marginLeft=\"10dp\"\r\n            android:layout_centerVertical=\"true\"\r\n            android:textSize=\"20sp\"\r\n            android:textColor=\"@color/colorWhite\"\r\n            android:text=\"Jean Jadot\"/>\r\n\r\n    </androidx.appcompat.widget.Toolbar>\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:id=\"@+id/message_activity_all_messages\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:layout_below=\"@id/message_activity_toolbar\"\r\n        android:layout_above=\"@id/message_activity_box_message\"/>\r\n\r\n    <RelativeLayout\r\n        android:id=\"@+id/message_activity_box_message\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:padding=\"5dp\"\r\n        android:background=\"#ffffff\"\r\n        android:layout_alignParentBottom=\"true\">\r\n\r\n        <EditText\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:id=\"@+id/message_activity_to_send\"\r\n            android:hint=\"@string/messages_hint_FR\"\r\n            android:layout_toLeftOf=\"@+id/message_activity_btn_send\"\r\n            android:layout_centerVertical=\"true\" />\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/message_activity_btn_send\"\r\n            android:layout_width=\"40dp\"\r\n            android:layout_height=\"40dp\"\r\n            android:background=\"@drawable/send\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:layout_alignParentRight=\"true\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_messages.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/activity_messages.xml	(date 1606496257970)
+@@ -5,7 +5,7 @@
+     android:layout_height="match_parent"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:background="#eeeeee"
+-    tools:context=".Activities.MessagesActivity">
++    tools:context=".Views.MessagesActivity">
+ 
+     <androidx.appcompat.widget.Toolbar
+         android:id="@+id/message_activity_toolbar"
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MessagesActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.*;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.appcompat.widget.Toolbar;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport com.archilog.archi_log_demassue_piron.Adapter.ChatAdapter;\r\nimport com.archilog.archi_log_demassue_piron.Model.Chat;\r\nimport com.archilog.archi_log_demassue_piron.Model.User;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.*;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\n\r\npublic class MessagesActivity extends AppCompatActivity {\r\n\r\n    private ImageView user_image;\r\n    private TextView user_name;\r\n    private EditText message_toSend;\r\n    private ImageButton btn_toSend;\r\n\r\n    private FirebaseUser firebaseUser;\r\n    private DatabaseReference reference;\r\n    private Intent intent;\r\n\r\n    private ChatAdapter chatAdapter;\r\n    private List<Chat> messages;\r\n    private RecyclerView recyclerView;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_messages);\r\n\r\n        Toolbar toolbar = findViewById(R.id.message_activity_toolbar);\r\n        setSupportActionBar(toolbar);\r\n        getSupportActionBar().setTitle(\"\");\r\n        getSupportActionBar().setDisplayHomeAsUpEnabled(true);\r\n        toolbar.setNavigationOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                finish();\r\n            }\r\n        });\r\n\r\n        recyclerView = findViewById(R.id.message_activity_all_messages);\r\n        recyclerView.setHasFixedSize(true);\r\n        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());\r\n        linearLayoutManager.setStackFromEnd(true);\r\n        recyclerView.setLayoutManager(linearLayoutManager);\r\n\r\n        user_image = findViewById(R.id.message_activity_profile_image);\r\n        user_name = findViewById(R.id.message_activity_profile_name);\r\n        btn_toSend = findViewById(R.id.message_activity_btn_send);\r\n        message_toSend = findViewById(R.id.message_activity_to_send);\r\n\r\n        intent = getIntent();\r\n        final String id = intent.getStringExtra(\"userid\");\r\n\r\n        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();\r\n        reference = FirebaseDatabase.getInstance().getReference(\"Users\").child(id);\r\n\r\n        btn_toSend.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                String message = message_toSend.getText().toString();\r\n                if(message.equals(\"\")) {\r\n                    Toast.makeText(MessagesActivity.this, R.string.messagesActivity_lengthMessage_FR, Toast.LENGTH_LONG).show();\r\n                } else {\r\n                    sendMessage(firebaseUser.getUid(), id, message);\r\n                }\r\n\r\n                message_toSend.setText(\"\");\r\n            }\r\n        });\r\n\r\n        reference.addValueEventListener(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(DataSnapshot snapshot) {\r\n                User user = snapshot.getValue(User.class);\r\n                user_name.setText(user.getUsername());\r\n\r\n                if(user.getPictureURL().equals(\"default\")) {\r\n                    user_image.setImageResource(R.drawable.person);\r\n                } else {\r\n                    user_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur\r\n                }\r\n\r\n                readMessages(firebaseUser.getUid(), id, user.getPictureURL());\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(DatabaseError error) {\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n    private void sendMessage(String sender, String receiver, String message) {\r\n        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();\r\n\r\n        HashMap<String, Object> messageInformations = new HashMap<>();\r\n        messageInformations.put(\"sender\", sender);\r\n        messageInformations.put(\"receiver\", receiver);\r\n        messageInformations.put(\"message\", message);\r\n\r\n        reference.child(\"Chats\").push().setValue(messageInformations);\r\n    }\r\n\r\n    private void readMessages(final String myID, final String userID, final String imageURL) {\r\n        messages = new ArrayList<>();\r\n\r\n        reference = FirebaseDatabase.getInstance().getReference(\"Chats\");\r\n        reference.addValueEventListener(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(DataSnapshot dataSnapshot) {\r\n                messages.clear();\r\n                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {\r\n                    Chat chat = snapshot.getValue(Chat.class);\r\n                    if(chat.getReceiver().equals(myID) && chat.getSender().equals(userID) ||\r\n                       chat.getReceiver().equals(userID) && chat.getSender().equals(myID) ) {\r\n                        messages.add(chat);\r\n                    }\r\n\r\n                    chatAdapter = new ChatAdapter(MessagesActivity.this, messages, imageURL);\r\n                    recyclerView.setAdapter(chatAdapter);\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(DatabaseError error) {\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MessagesActivity.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/MessagesActivity.java	(date 1608027038239)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
+@@ -8,9 +8,9 @@
+ import androidx.appcompat.widget.Toolbar;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+-import com.archilog.archi_log_demassue_piron.Adapter.ChatAdapter;
+-import com.archilog.archi_log_demassue_piron.Model.Chat;
+-import com.archilog.archi_log_demassue_piron.Model.User;
++import com.archilog.archi_log_demassue_piron.Model.Adapter.ChatAdapter;
++import com.archilog.archi_log_demassue_piron.Model.Chat.Chat;
++import com.archilog.archi_log_demassue_piron.Model.Chat.User;
+ import com.archilog.archi_log_demassue_piron.R;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+@@ -91,16 +91,14 @@
+                 if(user.getPictureURL().equals("default")) {
+                     user_image.setImageResource(R.drawable.person);
+                 } else {
+-                    user_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur
++                    user_image.setImageResource(R.drawable.person);
+                 }
+ 
+                 readMessages(firebaseUser.getUid(), id, user.getPictureURL());
+             }
+ 
+             @Override
+-            public void onCancelled(DatabaseError error) {
+-
+-            }
++            public void onCancelled(DatabaseError error) {}
+         });
+     }
+ 
+@@ -136,9 +134,7 @@
+             }
+ 
+             @Override
+-            public void onCancelled(DatabaseError error) {
+-
+-            }
++            public void onCancelled(DatabaseError error) {}
+         });
+     }
+ 
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Adapter/UserAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Adapter;\r\n\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport com.archilog.archi_log_demassue_piron.Activities.MessagesActivity;\r\nimport com.archilog.archi_log_demassue_piron.Model.User;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\n\r\nimport java.util.List;\r\n\r\npublic class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {\r\n\r\n    private Context context;\r\n    private List<User> users;\r\n\r\n    public UserAdapter(Context context, List<User> users) {\r\n        this.context = context;\r\n        this.users = users;\r\n    }\r\n\r\n    @Override\r\n    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {\r\n        View view = LayoutInflater.from(context).inflate(R.layout.user_item, parent, false);\r\n        return new UserAdapter.ViewHolder(view);\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(UserAdapter.ViewHolder holder, int position) {\r\n        final User user = users.get(position);\r\n        holder.username.setText(user.getUsername());\r\n\r\n        if(user.getPictureURL().equals(\"default\")) {\r\n            holder.profile_image.setImageResource(R.drawable.person);\r\n        } else {\r\n            holder.profile_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur\r\n        }\r\n\r\n        holder.itemView.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Intent intent = new Intent(context, MessagesActivity.class);\r\n                intent.putExtra(\"userid\", user.getId());\r\n                context.startActivity(intent);\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return users.size();\r\n    }\r\n\r\n\r\n    public class ViewHolder extends RecyclerView.ViewHolder {\r\n        private TextView username;\r\n        private ImageView profile_image;\r\n\r\n        public ViewHolder(View view) {\r\n            super(view);\r\n\r\n            username = view.findViewById(R.id.fragment_user_profile_name);\r\n            profile_image = view.findViewById(R.id.fragment_user_profile_image);\r\n        }\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Adapter/UserAdapter.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Adapter/UserAdapter.java	(date 1608027038283)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Adapter;
++package com.archilog.archi_log_demassue_piron.Model.Adapter;
+ 
+ import android.content.Context;
+ import android.content.Intent;
+@@ -8,8 +8,8 @@
+ import android.widget.ImageView;
+ import android.widget.TextView;
+ import androidx.recyclerview.widget.RecyclerView;
+-import com.archilog.archi_log_demassue_piron.Activities.MessagesActivity;
+-import com.archilog.archi_log_demassue_piron.Model.User;
++import com.archilog.archi_log_demassue_piron.Views.MessagesActivity;
++import com.archilog.archi_log_demassue_piron.Model.Chat.User;
+ import com.archilog.archi_log_demassue_piron.R;
+ 
+ import java.util.List;
+@@ -38,7 +38,7 @@
+         if(user.getPictureURL().equals("default")) {
+             holder.profile_image.setImageResource(R.drawable.person);
+         } else {
+-            holder.profile_image.setImageResource(R.drawable.person); //TODO à modifier avec la photo de l'utilisateur
++            holder.profile_image.setImageResource(R.drawable.person);
+         }
+ 
+         holder.itemView.setOnClickListener(new View.OnClickListener() {
+@@ -56,7 +56,6 @@
+         return users.size();
+     }
+ 
+-
+     public class ViewHolder extends RecyclerView.ViewHolder {
+         private TextView username;
+         private ImageView profile_image;
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Chat.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Model;\r\n\r\npublic class Chat {\r\n\r\n    private String sender;\r\n    private String receiver;\r\n    private String message;\r\n\r\n    public Chat() {\r\n\r\n    }\r\n\r\n    public Chat(String sender, String receiver, String message) {\r\n        this.message = message;\r\n        this.sender = sender;\r\n        this.receiver = receiver;\r\n    }\r\n\r\n    public String getMessage() {\r\n        return message;\r\n    }\r\n\r\n    public String getReceiver() {\r\n        return receiver;\r\n    }\r\n\r\n    public String getSender() {\r\n        return sender;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Chat.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Chat/Chat.java	(date 1606409737717)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Model;
++package com.archilog.archi_log_demassue_piron.Model.Chat;
+ 
+ public class Chat {
+ 
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Model;\r\n\r\npublic class User {\r\n\r\n    private String id;\r\n    private String username;\r\n    private String pictureURL;\r\n\r\n    public User(String id, String username, String pictureURL) {\r\n        this.id = id;\r\n        this.username = username;\r\n        this.pictureURL = pictureURL;\r\n    }\r\n\r\n    public User() {\r\n\r\n    }\r\n\r\n    public String getId() {\r\n        return this.id;\r\n    }\r\n\r\n    public String getPictureURL() {\r\n        return this.pictureURL;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return this.username;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/User.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Chat/User.java	(date 1606409737636)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Model;
++package com.archilog.archi_log_demassue_piron.Model.Chat;
+ 
+ public class User {
+ 
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableLists/ExpandableListForHouses.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableLists/ExpandableListForHouses.java	(date 1607978483631)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/ExpandableLists/ExpandableListForHouses.java	(date 1607978483631)
+@@ -0,0 +1,41 @@
++package com.archilog.archi_log_demassue_piron.Model.ExpandableLists;
++
++import android.content.Context;
++import com.archilog.archi_log_demassue_piron.Model.HTTPRequests.GetUserHousesAndServicingHousesRequest;
++import com.archilog.archi_log_demassue_piron.Model.House;
++
++import java.util.*;
++
++public class ExpandableListForHouses extends Observable implements Observer {
++    private static List<House> myEstate;
++    private static List<House> estateFromOthers;
++    private static GetUserHousesAndServicingHousesRequest getUserHousesAndServicingHousesRequest;
++
++    public ExpandableListForHouses(Context context) {
++        myEstate = new ArrayList<>();
++        estateFromOthers = new ArrayList<>();
++
++        getUserHousesAndServicingHousesRequest = new GetUserHousesAndServicingHousesRequest(context);
++        getUserHousesAndServicingHousesRequest.addObserver(this);
++
++        getUserHousesAndServicingHousesRequest.getUserHousesAndServicingHousesRequest();
++    }
++
++    public static HashMap<String, List<House>> getEstateForFirstPage() {
++        final HashMap<String, List<House>> expandableListDetail = new HashMap<String, List<House>>();
++
++        expandableListDetail.put("Mes biens", myEstate);
++        expandableListDetail.put("Les biens dont je m'occupe", estateFromOthers);
++
++        return expandableListDetail;
++    }
++
++    @Override
++    public void update(Observable observable, Object o) {
++        myEstate = getUserHousesAndServicingHousesRequest.getUserHouses();
++        estateFromOthers = getUserHousesAndServicingHousesRequest.getServicingHousesAsHouses();
++
++        setChanged();
++        notifyObservers();
++    }
++}
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInAccount;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions;\r\nimport com.google.android.gms.common.api.ApiException;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.*;\r\n\r\npublic class MainActivity extends AppCompatActivity implements View.OnClickListener {\r\n\r\n    private static final int RC_SIGN_IN = 9001;\r\n\r\n    private GoogleSignInOptions gso;\r\n    private GoogleSignInClient mGoogleSignInClient;\r\n    private FirebaseAuth auth;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        auth = FirebaseAuth.getInstance();\r\n\r\n        if(auth.getCurrentUser() != null) {\r\n            startActivity(MainPageActivity.class);\r\n        }\r\n\r\n        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n                .requestIdToken(getString(R.string.default_web_client_id))\r\n                .requestEmail()\r\n                .build();\r\n\r\n        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);\r\n\r\n        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);\r\n\r\n        findViewById(R.id.activity_main_signInButtonWithGoogle).setOnClickListener(this);\r\n        findViewById(R.id.activity_main_signIn).setOnClickListener(this);\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View view) {\r\n        switch (view.getId()) {\r\n            case R.id.activity_main_signIn:\r\n                startActivity(new Intent(MainActivity.this, SignInActivity.class));\r\n                break;\r\n            case R.id.activity_main_signInButtonWithGoogle:\r\n                signIn();\r\n                break;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n\r\n        if (requestCode == RC_SIGN_IN) {\r\n            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);\r\n            try {\r\n                GoogleSignInAccount account = task.getResult(ApiException.class);\r\n                firebaseAuthWithGoogle(account.getIdToken());\r\n            } catch (ApiException e) {\r\n                Toast.makeText(MainActivity.this, R.string.signInActivity_toastTextOnConnexion_FR, Toast.LENGTH_LONG).show();\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    private void signIn() {\r\n        Intent signInIntent = mGoogleSignInClient.getSignInIntent();\r\n        startActivityForResult(signInIntent, RC_SIGN_IN);\r\n    }\r\n\r\n    private void firebaseAuthWithGoogle(String idToken) {\r\n        final AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);\r\n        auth.signInWithCredential(credential)\r\n                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<AuthResult> task) {\r\n                        if (task.isSuccessful()) {\r\n                            /*\r\n                            TODO\r\n                                auth result ? -> pour obtenir le token\r\n                                Une fois que j'ai le token, appel Rest, calcul du token, stockage du UserToken retourné\r\n                             */\r\n\r\n                            startActivity(MainPageActivity.class);\r\n                        } else {\r\n                            Toast.makeText(MainActivity.this, R.string.signInActivity_toastTextOnConnexion_FR, Toast.LENGTH_LONG).show();\r\n                        }\r\n                    }\r\n                });\r\n    }\r\n\r\n    private void startActivity(Class toStart) {\r\n        Intent intent = new Intent(MainActivity.this, toStart);\r\n        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);\r\n        startActivity(intent);\r\n        finish();\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MainActivity.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/MainActivity.java	(date 1608062982906)
+@@ -1,6 +1,5 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+-import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+ import android.content.Intent;
+@@ -8,47 +7,23 @@
+ import android.view.View;
+ import android.widget.Toast;
+ 
++import com.archilog.archi_log_demassue_piron.Presenter.MainActivityPresenter;
+ import com.archilog.archi_log_demassue_piron.R;
+-import com.google.android.gms.auth.api.signin.GoogleSignIn;
+-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+-import com.google.android.gms.common.api.ApiException;
+-import com.google.android.gms.tasks.OnCompleteListener;
+-import com.google.android.gms.tasks.Task;
+-import com.google.firebase.auth.*;
+ 
+ public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+-
++    private MainActivityPresenter mainActivityPresenter;
+     private static final int RC_SIGN_IN = 9001;
+ 
+-    private GoogleSignInOptions gso;
+-    private GoogleSignInClient mGoogleSignInClient;
+-    private FirebaseAuth auth;
+-
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+ 
+-        auth = FirebaseAuth.getInstance();
+-
+-        if(auth.getCurrentUser() != null) {
+-            startActivity(MainPageActivity.class);
+-        }
+-
+-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+-                .requestIdToken(getString(R.string.default_web_client_id))
+-                .requestEmail()
+-                .build();
+-
+-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+-
+-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+-
+         findViewById(R.id.activity_main_signInButtonWithGoogle).setOnClickListener(this);
+         findViewById(R.id.activity_main_signIn).setOnClickListener(this);
+ 
++        this.mainActivityPresenter = new MainActivityPresenter(this, this);
++
+     }
+ 
+     @Override
+@@ -63,52 +38,19 @@
+         }
+     }
+ 
++    private void signIn() {
++        Intent signInIntent = MainActivityPresenter.getGoogleSignInClient().getSignInIntent();
++        startActivityForResult(signInIntent, RC_SIGN_IN);
++    }
++
+     @Override
+     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
+ 
+-        if (requestCode == RC_SIGN_IN) {
+-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+-            try {
+-                GoogleSignInAccount account = task.getResult(ApiException.class);
+-                firebaseAuthWithGoogle(account.getIdToken());
+-            } catch (ApiException e) {
+-                Toast.makeText(MainActivity.this, R.string.signInActivity_toastTextOnConnexion_FR, Toast.LENGTH_LONG).show();
+-            }
+-        }
+-
+-    }
+-
+-    private void signIn() {
+-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+-        startActivityForResult(signInIntent, RC_SIGN_IN);
++        mainActivityPresenter.checkIfConnectionIsPossible(requestCode, data);
+     }
+ 
+-    private void firebaseAuthWithGoogle(String idToken) {
+-        final AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+-        auth.signInWithCredential(credential)
+-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+-                    @Override
+-                    public void onComplete(@NonNull Task<AuthResult> task) {
+-                        if (task.isSuccessful()) {
+-                            /*
+-                            TODO
+-                                auth result ? -> pour obtenir le token
+-                                Une fois que j'ai le token, appel Rest, calcul du token, stockage du UserToken retourné
+-                             */
+-
+-                            startActivity(MainPageActivity.class);
+-                        } else {
+-                            Toast.makeText(MainActivity.this, R.string.signInActivity_toastTextOnConnexion_FR, Toast.LENGTH_LONG).show();
+-                        }
+-                    }
+-                });
+-    }
+-
+-    private void startActivity(Class toStart) {
+-        Intent intent = new Intent(MainActivity.this, toStart);
+-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+-        startActivity(intent);
+-        finish();
++    public void printToast(String message) {
++        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">ARCHI_LOG_Demassue_Piron</string>\r\n\r\n    <!-- layout/activity_main.xml -->\r\n    <string name=\"mainActivity_mainTitle_FR\">Bonjour ! </string>\r\n    <string name=\"mainActivity_explanations_FR\">Comment voulez-vous accéder à l\\'application ? </string>\r\n    <string name=\"mainActivity_signIn_FR\">Connexion</string>\r\n\r\n    <!-- layout/activity_signin.xml -->\r\n    <string name=\"signInActivity_title_FR\">Connexion</string>\r\n    <string name=\"signInActivity_email_FR\">Email</string>\r\n    <string name=\"signInActivity_password_FR\">Mot de passe</string>\r\n    <string name=\"signInActivity_toastTextOnData_FR\">Veuillez vérifier les données du formulaire.</string>\r\n    <string name=\"signInActivity_toastTextOnConnexion_FR\">Connexion impossible. Veuillez réessayer plus tard.</string>\r\n\r\n    <!-- menu/bottom_navigation.xml -->\r\n    <string name=\"bottomNavigation_home_FR\">Home</string>\r\n    <string name=\"bottomNavigation_map_FR\">Carte</string>\r\n    <string name=\"bottomNavigation_messages_FR\">Messages</string>\r\n    <string name=\"bottomNavigation_settings_FR\">Paramètres</string>\r\n\r\n    <!-- model/ExpandableListData.java -->\r\n    <string name=\"expandableListData_myEstate_FR\">Mes biens</string>\r\n    <string name=\"expandableListData_estateFromOther_FR\">Les biens dont je m\\'occupe</string>\r\n\r\n    <!-- model/MapFragment.java -->\r\n    <string name=\"mapFragment_currentLocation_FR\">Vous êtes ici</string>\r\n\r\n    <!-- model/MessagesActivity.java -->\r\n    <string name=\"messagesActivity_lengthMessage_FR\">Votre message est vide !</string>\r\n\r\n    <!-- layout/fragment_housedetails.xml -->\r\n    <string name=\"houseDetails_instructions_FR\">Consignes</string>\r\n    <string name=\"houseDetails_iTakeCareOfTheHouse_FR\">Je m\\'en suis occupé</string>\r\n    <string name=\"houseDetails_instructionsRating_FR\">Évaluer les consignes mises à ma disposition</string>\r\n    <string name=\"houseDetails_sendMessage_FR\">Envoyer un message</string>\r\n\r\n    <!-- layout/fragment_ratingowner.xml -->\r\n    <string name=\"ratingOwner_rating_FR\">Évaluez la personne qui s\\'occupe de votre bien</string>\r\n    <string name=\"ratingOwner_sendMessage_FR\">Envoyer un message</string>\r\n\r\n    <!-- layout/fragment_settings.xml -->\r\n    <string name=\"settings_title_FR\">Paramètres</string>\r\n    <string name=\"settings_disconnect_FR\">Déconnexion</string>\r\n\r\n    <!-- layout/activity_messages.xml -->\r\n    <string name=\"messages_hint_FR\">Message...</string>\r\n\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/values/strings.xml	(date 1607453864014)
+@@ -25,19 +25,24 @@
+ 
+     <!-- model/MapFragment.java -->
+     <string name="mapFragment_currentLocation_FR">Vous êtes ici</string>
++    <string name="mapFragment_errorLocation_FR">Une erreur est survenue lors de la localisation. Merci de réessayer plus tard.</string>
+ 
+     <!-- model/MessagesActivity.java -->
+     <string name="messagesActivity_lengthMessage_FR">Votre message est vide !</string>
+ 
+-    <!-- layout/fragment_housedetails.xml -->
++    <!-- layout/activity_housedetails.xml -->
++    <string name="houseDetails_descriptionPassage_FR">Qu\'avez-vous fait pendant votre passage ? </string>
++    <string name="houseDetails_titlePassage_FR">Ajouter un passage</string>
+     <string name="houseDetails_instructions_FR">Consignes</string>
+     <string name="houseDetails_iTakeCareOfTheHouse_FR">Je m\'en suis occupé</string>
+     <string name="houseDetails_instructionsRating_FR">Évaluer les consignes mises à ma disposition</string>
+-    <string name="houseDetails_sendMessage_FR">Envoyer un message</string>
++    <string name="houseDetails_sendNote_FR">Envoyer ma note</string>
++    <string name="houseDetails_noteComment_FR">Pourquoi avez-vous attribué cette note ? </string>
+ 
+-    <!-- layout/fragment_ratingowner.xml -->
+-    <string name="ratingOwner_rating_FR">Évaluez la personne qui s\'occupe de votre bien</string>
+-    <string name="ratingOwner_sendMessage_FR">Envoyer un message</string>
++    <!-- layout/activity_rateservant.xml -->
++    <string name="rateServant_rating_FR">Évaluez la personne qui s\'occupe de votre bien</string>
++    <string name="rateServant_sendNote_FR">Envoyer ma note</string>
++    <string name="rateServant_noteComment_FR">Pourquoi avez-vous attribué cette note ? </string>
+ 
+     <!-- layout/fragment_settings.xml -->
+     <string name="settings_title_FR">Paramètres</string>
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/SignInActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.text.TextUtils;\r\nimport android.view.View;\r\nimport android.widget.EditText;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\n\r\npublic class SignInActivity extends AppCompatActivity implements View.OnClickListener {\r\n\r\n    private EditText email, password;\r\n    private FirebaseAuth auth;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_signin);\r\n\r\n        email = findViewById(R.id.activity_signin_email);\r\n        password = findViewById(R.id.activity_signin_password);\r\n\r\n        auth = FirebaseAuth.getInstance();\r\n\r\n        findViewById(R.id.activity_signin_btn_login).setOnClickListener(this);\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View view) {\r\n        switch (view.getId()) {\r\n            case R.id.activity_signin_btn_login:\r\n                checkUsersData();\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void checkUsersData() {\r\n        String emailText = email.getText().toString();\r\n        String passwordText = password.getText().toString();\r\n        if(TextUtils.isEmpty(emailText) || TextUtils.isEmpty(passwordText)) {\r\n            Toast.makeText(SignInActivity.this, R.string.signInActivity_toastTextOnData_FR, Toast.LENGTH_LONG).show();\r\n        } else {\r\n            checkIfUserExists(emailText, passwordText);\r\n        }\r\n    }\r\n\r\n    private void checkIfUserExists(String email, String password) {\r\n        auth.signInWithEmailAndPassword(email, password)\r\n            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {\r\n                @Override\r\n                public void onComplete(@NonNull Task<AuthResult> task) {\r\n                    if(task.isSuccessful()) {\r\n                        startActivity(new Intent(SignInActivity.this, MainPageActivity.class));\r\n                    } else {\r\n                        Toast.makeText(SignInActivity.this, R.string.signInActivity_toastTextOnConnexion_FR, Toast.LENGTH_LONG).show();\r\n                    }\r\n                }\r\n            });\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/SignInActivity.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/SignInActivity.java	(date 1606496257982)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/SettingsFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.Button;\r\nimport androidx.fragment.app.Fragment;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\n\r\npublic class SettingsFragment extends Fragment implements View.OnClickListener {\r\n\r\n    private FirebaseAuth auth;\r\n    private Button disconnect;\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_settings, container, false);\r\n\r\n        auth = FirebaseAuth.getInstance();\r\n        disconnect = view.findViewById(R.id.fragment_settings_disconnect);\r\n        disconnect.setOnClickListener(this);\r\n\r\n        return view;\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View view) {\r\n        switch (view.getId()) {\r\n            case R.id.fragment_settings_disconnect:\r\n                logout();\r\n                break;\r\n        }\r\n\r\n    }\r\n\r\n    private void logout() {\r\n        auth.signOut();\r\n        startActivity(new Intent(getActivity(), MainActivity.class));\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/SettingsFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/SettingsFragment.java	(date 1608062982916)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
+@@ -7,19 +7,17 @@
+ import android.view.ViewGroup;
+ import android.widget.Button;
+ import androidx.fragment.app.Fragment;
++import com.archilog.archi_log_demassue_piron.Presenter.SettingsFragmentPresenter;
+ import com.archilog.archi_log_demassue_piron.R;
+-import com.google.firebase.auth.FirebaseAuth;
+ 
+ public class SettingsFragment extends Fragment implements View.OnClickListener {
+ 
+-    private FirebaseAuth auth;
+     private Button disconnect;
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+ 
+-        auth = FirebaseAuth.getInstance();
+         disconnect = view.findViewById(R.id.fragment_settings_disconnect);
+         disconnect.setOnClickListener(this);
+ 
+@@ -37,7 +35,8 @@
+     }
+ 
+     private void logout() {
+-        auth.signOut();
++        SettingsFragmentPresenter settingsFragmentPresenter = new SettingsFragmentPresenter(getContext());
++        settingsFragmentPresenter.logOut();
+         startActivity(new Intent(getActivity(), MainActivity.class));
+     }
+ }
+Index: app/src/main/res/layout/fragment_housedetails.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <ScrollView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\">\r\n            <TextView\r\n                android:text=\"TextView\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:id=\"@+id/fragment_housedetails_houseFrom\"\r\n                android:textAlignment=\"center\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"20sp\"/>\r\n            <TextView\r\n                android:text=\"TextView\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:id=\"@+id/fragment_housedetails_houseFromAddress\"\r\n                android:textAlignment=\"center\"/>\r\n            <ImageView\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                tools:srcCompat=\"@tools:sample/avatars\"\r\n                android:id=\"@+id/fragment_housedetails_imagesHouse\"\r\n                android:layout_margin=\"10sp\"/>\r\n            <TextView\r\n                android:text=\"@string/houseDetails_instructions_FR\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:id=\"@+id/fragment_housedetails_titleInstructions\"\r\n                android:textAlignment=\"center\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"20sp\"/>\r\n            <TextView\r\n                android:text=\"TextView\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:id=\"@+id/fragment_housedetails_instructions\"/>\r\n            <Button\r\n                    android:text=\"@string/houseDetails_iTakeCareOfTheHouse_FR\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:id=\"@+id/fragment_housedetails_btn_takeCare\"\r\n                    android:layout_marginTop=\"20sp\"\r\n                    android:background=\"@color/colorPrimary\" android:layout_marginLeft=\"5sp\"\r\n                    android:layout_marginRight=\"5sp\"/>\r\n            <TextView\r\n                android:text=\"@string/houseDetails_instructionsRating_FR\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:id=\"@+id/fragment_housedetails_titleRatingBar\"\r\n                android:textAlignment=\"center\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:layout_marginTop=\"20sp\"/>\r\n            <RatingBar\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:id=\"@+id/fragment_housedetails_ratingBar\"\r\n                android:numStars=\"5\"/>\r\n            <Button\r\n                    android:text=\"@string/houseDetails_sendMessage_FR\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:id=\"@+id/fragment_housedetails_btn_sendMessage\"\r\n                    android:layout_marginTop=\"20sp\"\r\n                    android:background=\"@color/colorPrimary\" android:layout_marginLeft=\"5sp\"\r\n                    android:layout_marginRight=\"5sp\"/>\r\n        </LinearLayout>\r\n    </ScrollView>\r\n</RelativeLayout>
+===================================================================
+--- app/src/main/res/layout/fragment_housedetails.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/activity_housedetails.xml	(date 1607849742956)
+@@ -1,81 +1,114 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+ 
+     <ScrollView
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent">
++        android:layout_height="match_parent"
++        android:focusable="true"
++        android:focusableInTouchMode="true">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:orientation="vertical">
++            android:orientation="vertical"
++            android:focusable="true"
++            android:focusableInTouchMode="true">
+             <TextView
+-                android:text="TextView"
++                android:text=""
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:id="@+id/fragment_housedetails_houseFrom"
++                android:id="@+id/activity_housedetails_houseFrom"
+                 android:textAlignment="center"
+                 android:textStyle="bold"
+                 android:textSize="20sp"/>
+             <TextView
+-                android:text="TextView"
++                android:text=""
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+-                android:id="@+id/fragment_housedetails_houseFromAddress"
++                android:id="@+id/activity_housedetails_houseFromAddress"
+                 android:textAlignment="center"/>
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 tools:srcCompat="@tools:sample/avatars"
+-                android:id="@+id/fragment_housedetails_imagesHouse"
++                android:id="@+id/activity_housedetails_imagesHouse"
+                 android:layout_margin="10sp"/>
+             <TextView
+                 android:text="@string/houseDetails_instructions_FR"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:id="@+id/fragment_housedetails_titleInstructions"
++                android:id="@+id/activity_housedetails_titleInstructions"
+                 android:textAlignment="center"
+                 android:textStyle="bold"
+                 android:textSize="20sp"/>
+             <TextView
+-                android:text="TextView"
++                android:text=""
++                android:padding="5dp"
++                android:textSize="16sp"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:id="@+id/activity_housedetails_instructions"/>
++            <TextView
++                android:text="@string/houseDetails_titlePassage_FR"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:id="@+id/activity_housedetails_titlePassage"
++                android:textAlignment="center"
++                android:textStyle="bold"
++                android:textSize="20sp"
++                android:paddingTop="20sp"/>
++            <EditText
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:id="@+id/fragment_housedetails_instructions"/>
++                android:paddingTop="10sp"
++                android:maxLength="500"
++                android:hint="@string/houseDetails_descriptionPassage_FR"
++                android:id="@+id/activity_housedetails_descriptionPassage" />
+             <Button
+-                    android:text="@string/houseDetails_iTakeCareOfTheHouse_FR"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:id="@+id/fragment_housedetails_btn_takeCare"
+-                    android:layout_marginTop="20sp"
+-                    android:background="@color/colorPrimary" android:layout_marginLeft="5sp"
+-                    android:layout_marginRight="5sp"/>
++                android:text="@string/houseDetails_iTakeCareOfTheHouse_FR"
++                android:textColor="@color/colorWhite"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:id="@+id/activity_housedetails_btn_takeCare"
++                android:layout_marginTop="20sp"
++                android:background="@color/colorPrimary"
++                android:layout_marginLeft="5sp"
++                android:layout_marginRight="5sp"
++                android:enabled="true"/>
+             <TextView
+                 android:text="@string/houseDetails_instructionsRating_FR"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:id="@+id/fragment_housedetails_titleRatingBar"
++                android:id="@+id/activity_housedetails_titleRatingBar"
+                 android:textAlignment="center"
+                 android:textStyle="bold"
+                 android:textSize="18sp"
+                 android:layout_marginTop="20sp"/>
+             <RatingBar
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_gravity="center"
++                android:id="@+id/activity_housedetails_ratingBar"
++                android:numStars="5"/>
++            <EditText
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:id="@+id/fragment_housedetails_ratingBar"
+-                android:numStars="5"/>
++                android:paddingTop="20sp"
++                android:maxLength="500"
++                android:id="@+id/activity_housedetails_noteDescription"
++                android:hint="@string/houseDetails_noteComment_FR"/>
+             <Button
+-                    android:text="@string/houseDetails_sendMessage_FR"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:id="@+id/fragment_housedetails_btn_sendMessage"
+-                    android:layout_marginTop="20sp"
+-                    android:background="@color/colorPrimary" android:layout_marginLeft="5sp"
+-                    android:layout_marginRight="5sp"/>
++                android:text="@string/houseDetails_sendNote_FR"
++                android:textColor="@color/colorWhite"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:id="@+id/activity_housedetails_sendNote"
++                android:layout_marginTop="20sp"
++                android:background="@color/colorPrimary" android:layout_marginLeft="5sp"
++                android:layout_marginRight="5sp"/>
+         </LinearLayout>
+     </ScrollView>
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_mainpage.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout\r\n        xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n        xmlns:tools=\"http://schemas.android.com/tools\"\r\n        xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        tools:context=\".Activities.MainPageActivity\">\r\n\r\n    <FrameLayout\r\n        android:id=\"@+id/activity_mainpage_fragment_container\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:layout_above=\"@id/activity_mainpage_bottom_navigation\"/>\r\n\r\n    <com.google.android.material.bottomnavigation.BottomNavigationView\r\n        android:id=\"@+id/activity_mainpage_bottom_navigation\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        app:menu=\"@menu/bottom_navigation\"\r\n        android:background=\"?android:attr/windowBackground\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_mainpage.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/activity_mainpage.xml	(date 1606496258060)
+@@ -5,7 +5,7 @@
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+-        tools:context=".Activities.MainPageActivity">
++        tools:context=".Views.MainPageActivity">
+ 
+     <FrameLayout
+         android:id="@+id/activity_mainpage_fragment_container"
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/CustomExpandableListAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Model;\r\n\r\nimport android.content.Context;\r\nimport android.graphics.Typeface;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.BaseExpandableListAdapter;\r\nimport android.widget.TextView;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\n\r\npublic class CustomExpandableListAdapter extends BaseExpandableListAdapter {\r\n    private Context context;\r\n    private List<String> expandableListTitle;\r\n    private HashMap<String, List<String>> expandableListDetail;\r\n\r\n    public CustomExpandableListAdapter(Context context, List<String> expandableListTitle,\r\n                                       HashMap<String, List<String>> expandableListDetail) {\r\n        this.context = context;\r\n        this.expandableListTitle = expandableListTitle;\r\n        this.expandableListDetail = expandableListDetail;\r\n    }\r\n\r\n    @Override\r\n    public Object getChild(int listPosition, int expandedListPosition) {\r\n        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))\r\n                .get(expandedListPosition);\r\n    }\r\n\r\n    @Override\r\n    public long getChildId(int listPosition, int expandedListPosition) {\r\n        return expandedListPosition;\r\n    }\r\n\r\n    @Override\r\n    public View getChildView(int listPosition, final int expandedListPosition,\r\n                             boolean isLastChild, View convertView, ViewGroup parent) {\r\n        final String expandedListText = (String) getChild(listPosition, expandedListPosition);\r\n        if (convertView == null) {\r\n            LayoutInflater layoutInflater = (LayoutInflater) this.context\r\n                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n            convertView = layoutInflater.inflate(R.layout.list_item, null);\r\n        }\r\n        TextView expandedListTextView = (TextView) convertView\r\n                .findViewById(R.id.list_item_expandedListItem);\r\n        expandedListTextView.setText(expandedListText);\r\n        return convertView;\r\n    }\r\n\r\n    @Override\r\n    public int getChildrenCount(int listPosition) {\r\n        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))\r\n                .size();\r\n    }\r\n\r\n    @Override\r\n    public Object getGroup(int listPosition) {\r\n        return this.expandableListTitle.get(listPosition);\r\n    }\r\n\r\n    @Override\r\n    public int getGroupCount() {\r\n        return this.expandableListTitle.size();\r\n    }\r\n\r\n    @Override\r\n    public long getGroupId(int listPosition) {\r\n        return listPosition;\r\n    }\r\n\r\n    @Override\r\n    public View getGroupView(int listPosition, boolean isExpanded, View convertView, ViewGroup parent) {\r\n        String listTitle = (String) getGroup(listPosition);\r\n        if (convertView == null) {\r\n            LayoutInflater layoutInflater = (LayoutInflater) this.context.\r\n                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n            convertView = layoutInflater.inflate(R.layout.list_group, null);\r\n        }\r\n        TextView listTitleTextView = (TextView) convertView\r\n                .findViewById(R.id.list_group_listTitle);\r\n        listTitleTextView.setTypeface(null, Typeface.BOLD);\r\n        listTitleTextView.setText(listTitle);\r\n        return convertView;\r\n    }\r\n\r\n    @Override\r\n    public boolean hasStableIds() {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public boolean isChildSelectable(int listPosition, int expandedListPosition) {\r\n        return true;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/CustomExpandableListAdapter.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Adapter/CustomExpandableListAdapter.java	(date 1608029833421)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Model;
++package com.archilog.archi_log_demassue_piron.Model.Adapter;
+ 
+ import android.content.Context;
+ import android.graphics.Typeface;
+@@ -7,18 +7,19 @@
+ import android.view.ViewGroup;
+ import android.widget.BaseExpandableListAdapter;
+ import android.widget.TextView;
++import com.archilog.archi_log_demassue_piron.Model.IObject;
+ import com.archilog.archi_log_demassue_piron.R;
+ 
+ import java.util.HashMap;
+ import java.util.List;
+ 
+-public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
++public class CustomExpandableListAdapter<T extends IObject> extends BaseExpandableListAdapter {
+     private Context context;
+     private List<String> expandableListTitle;
+-    private HashMap<String, List<String>> expandableListDetail;
++    private HashMap<String, List<T>> expandableListDetail;
+ 
+     public CustomExpandableListAdapter(Context context, List<String> expandableListTitle,
+-                                       HashMap<String, List<String>> expandableListDetail) {
++                                       HashMap<String, List<T>> expandableListDetail) {
+         this.context = context;
+         this.expandableListTitle = expandableListTitle;
+         this.expandableListDetail = expandableListDetail;
+@@ -26,8 +27,19 @@
+ 
+     @Override
+     public Object getChild(int listPosition, int expandedListPosition) {
+-        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
++        T t =  this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+                 .get(expandedListPosition);
++
++        System.out.println(t.getFormattedName());
++
++        return t.getFormattedName();
++    }
++
++    public void setNewItems(List<String> expandableListTitle,
++                            HashMap<String, List<T>> expandableListDetail) {
++        this.expandableListTitle = expandableListTitle;
++        this.expandableListDetail = expandableListDetail;
++        notifyDataSetChanged();
+     }
+ 
+     @Override
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/HomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ExpandableListAdapter;\r\nimport android.widget.ExpandableListView;\r\nimport android.widget.Toast;\r\nimport androidx.fragment.app.Fragment;\r\nimport com.archilog.archi_log_demassue_piron.Model.CustomExpandableListAdapter;\r\nimport com.archilog.archi_log_demassue_piron.Model.ExpandableListData;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\n\r\nimport static com.firebase.ui.auth.AuthUI.getApplicationContext;\r\n\r\npublic class HomeFragment extends Fragment {\r\n\r\n    private ExpandableListView expandableListView;\r\n    private ExpandableListAdapter expandableListAdapter;\r\n    private List<String> expandableListTitle;\r\n    private HashMap<String, List<String>> expandableListDetail;\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_home, container, false);\r\n\r\n        new ExpandableListData(); //Initialisation des listes\r\n\r\n        expandableListView = (ExpandableListView) view.findViewById(R.id.fragment_home_expandableListView);\r\n        expandableListDetail = ExpandableListData.getEstateForFirstPage();\r\n        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());\r\n        expandableListAdapter = new CustomExpandableListAdapter(getContext(), expandableListTitle, expandableListDetail);\r\n        expandableListView.setAdapter(expandableListAdapter);\r\n        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {\r\n\r\n            @Override\r\n            public void onGroupExpand(int groupPosition) {\r\n                Toast.makeText(getApplicationContext(),\r\n                        expandableListTitle.get(groupPosition) + \" List Expanded.\",\r\n                        Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n\r\n        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {\r\n\r\n            @Override\r\n            public void onGroupCollapse(int groupPosition) {\r\n                Toast.makeText(getApplicationContext(),\r\n                        expandableListTitle.get(groupPosition) + \" List Collapsed.\",\r\n                        Toast.LENGTH_SHORT).show();\r\n\r\n            }\r\n        });\r\n\r\n        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {\r\n            @Override\r\n            public boolean onChildClick(ExpandableListView parent, View v,\r\n                                        int groupPosition, int childPosition, long id) {\r\n                Toast.makeText(\r\n                        getApplicationContext(),\r\n                        expandableListTitle.get(groupPosition)\r\n                                + \" -> \"\r\n                                + expandableListDetail.get(\r\n                                expandableListTitle.get(groupPosition)).get(\r\n                                childPosition), Toast.LENGTH_SHORT\r\n                ).show();\r\n                return false;\r\n            }\r\n        });\r\n\r\n\r\n        return view;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/HomeFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/HomeFragment.java	(date 1608057926417)
+@@ -1,79 +1,46 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import android.widget.ExpandableListAdapter;
+ import android.widget.ExpandableListView;
+-import android.widget.Toast;
+ import androidx.fragment.app.Fragment;
+-import com.archilog.archi_log_demassue_piron.Model.CustomExpandableListAdapter;
+-import com.archilog.archi_log_demassue_piron.Model.ExpandableListData;
++import com.archilog.archi_log_demassue_piron.Presenter.HomeFragmentPresenter;
+ import com.archilog.archi_log_demassue_piron.R;
+ 
+-import java.util.ArrayList;
+-import java.util.HashMap;
+-import java.util.List;
+-
+-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
+-
+ public class HomeFragment extends Fragment {
+ 
+     private ExpandableListView expandableListView;
+-    private ExpandableListAdapter expandableListAdapter;
+-    private List<String> expandableListTitle;
+-    private HashMap<String, List<String>> expandableListDetail;
++    private HomeFragmentPresenter homeFragmentPresenter;
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_home, container, false);
+ 
+-        new ExpandableListData(); //Initialisation des listes
+-
+-        expandableListView = (ExpandableListView) view.findViewById(R.id.fragment_home_expandableListView);
+-        expandableListDetail = ExpandableListData.getEstateForFirstPage();
+-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+-        expandableListAdapter = new CustomExpandableListAdapter(getContext(), expandableListTitle, expandableListDetail);
+-        expandableListView.setAdapter(expandableListAdapter);
+-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+-
+-            @Override
+-            public void onGroupExpand(int groupPosition) {
+-                Toast.makeText(getApplicationContext(),
+-                        expandableListTitle.get(groupPosition) + " List Expanded.",
+-                        Toast.LENGTH_SHORT).show();
+-            }
+-        });
+-
+-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
++        expandableListView = view.findViewById(R.id.fragment_home_expandableListView);
+ 
+-            @Override
+-            public void onGroupCollapse(int groupPosition) {
+-                Toast.makeText(getApplicationContext(),
+-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+-                        Toast.LENGTH_SHORT).show();
+-
+-            }
+-        });
++        homeFragmentPresenter = new HomeFragmentPresenter(getContext(), this);
++        homeFragmentPresenter.constructExpandableListView();
+ 
+         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+             @Override
+             public boolean onChildClick(ExpandableListView parent, View v,
+                                         int groupPosition, int childPosition, long id) {
+-                Toast.makeText(
+-                        getApplicationContext(),
+-                        expandableListTitle.get(groupPosition)
+-                                + " -> "
+-                                + expandableListDetail.get(
+-                                expandableListTitle.get(groupPosition)).get(
+-                                childPosition), Toast.LENGTH_SHORT
+-                ).show();
++                homeFragmentPresenter.handleClick(groupPosition, childPosition);
++
+                 return false;
+             }
+         });
+ 
+-
+         return view;
+     }
++
++    public ExpandableListView getExpandableListView() {
++        return expandableListView;
++    }
++
++    public void setExpandableListView(ExpandableListView expandableListView) {
++        this.expandableListView = expandableListView;
++    }
+ }
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Localisation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Model;\r\n\r\nimport android.Manifest;\r\nimport android.app.Activity;\r\nimport android.app.AlertDialog;\r\nimport android.app.Service;\r\nimport android.content.Context;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.content.pm.PackageManager;\r\nimport android.location.Location;\r\nimport android.location.LocationListener;\r\nimport android.location.LocationManager;\r\nimport android.os.Bundle;\r\nimport android.os.IBinder;\r\nimport android.provider.Settings;\r\nimport android.util.Log;\r\n\r\nimport androidx.core.app.ActivityCompat;\r\n\r\npublic class Localisation extends Service implements LocationListener {\r\n    private final Context mContext;\r\n\r\n    // flag for GPS status\r\n    private boolean isGPSEnabled = false;\r\n\r\n    // flag for network status\r\n    private boolean isNetworkEnabled = false;\r\n\r\n    // flag for GPS status\r\n    private boolean canGetLocation = false;\r\n\r\n    private Location location;\r\n    private double latitude, longitude;\r\n\r\n    // The minimum distance to change Updates in meters\r\n    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters\r\n\r\n    // The minimum time between updates in milliseconds\r\n    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute\r\n\r\n    // Declaring a Location Manager\r\n    protected LocationManager locationManager;\r\n\r\n    public Localisation(Context context) {\r\n        this.mContext = context;\r\n        getLocation();\r\n    }\r\n\r\n    public Location getLocation() {\r\n        try {\r\n            locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);\r\n\r\n            // getting GPS status\r\n            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);\r\n\r\n            // getting network status\r\n            isNetworkEnabled = locationManager\r\n                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);\r\n\r\n            if (!isGPSEnabled && !isNetworkEnabled) {\r\n                // no network provider is enabled\r\n            } else {\r\n                this.canGetLocation = true;\r\n                // First get location from Network Provider\r\n                if (isNetworkEnabled) {\r\n                    //check the network permission\r\n                    if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {\r\n                        ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);\r\n                    }\r\n                    locationManager.requestLocationUpdates(\r\n                            LocationManager.NETWORK_PROVIDER,\r\n                            MIN_TIME_BW_UPDATES,\r\n                            MIN_DISTANCE_CHANGE_FOR_UPDATES, this);\r\n\r\n                    Log.d(\"Network\", \"Network\");\r\n                    if (locationManager != null) {\r\n                        location = locationManager\r\n                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);\r\n\r\n                        if (location != null) {\r\n                            latitude = location.getLatitude();\r\n                            longitude = location.getLongitude();\r\n                        }\r\n                    }\r\n                }\r\n\r\n                // if GPS Enabled get lat/long using GPS Services\r\n                if (isGPSEnabled) {\r\n                    if (location == null) {\r\n                        //check the network permission\r\n                        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {\r\n                            ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);\r\n                        }\r\n                        locationManager.requestLocationUpdates(\r\n                                LocationManager.GPS_PROVIDER,\r\n                                MIN_TIME_BW_UPDATES,\r\n                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);\r\n\r\n                        Log.d(\"GPS Enabled\", \"GPS Enabled\");\r\n                        if (locationManager != null) {\r\n                            location = locationManager\r\n                                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);\r\n\r\n                            if (location != null) {\r\n                                latitude = location.getLatitude();\r\n                                longitude = location.getLongitude();\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        return location;\r\n    }\r\n\r\n    /**\r\n     * Stop using GPS listener\r\n     * Calling this function will stop using GPS in your app\r\n     * */\r\n\r\n    public void stopUsingGPS(){\r\n        if(locationManager != null){\r\n            locationManager.removeUpdates(Localisation.this);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Function to get latitude\r\n     * */\r\n\r\n    public double getLatitude(){\r\n        if(location != null){\r\n            latitude = location.getLatitude();\r\n        }\r\n\r\n        // return latitude\r\n        return latitude;\r\n    }\r\n\r\n    /**\r\n     * Function to get longitude\r\n     * */\r\n\r\n    public double getLongitude(){\r\n        if(location != null){\r\n            longitude = location.getLongitude();\r\n        }\r\n\r\n        // return longitude\r\n        return longitude;\r\n    }\r\n\r\n    /**\r\n     * Function to check GPS/wifi enabled\r\n     * @return boolean\r\n     * */\r\n\r\n    public boolean canGetLocation() {\r\n        return this.canGetLocation;\r\n    }\r\n\r\n    /**\r\n     * Function to show settings alert dialog\r\n     * On pressing Settings button will lauch Settings Options\r\n     * */\r\n\r\n    public void showSettingsAlert(){\r\n        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);\r\n\r\n        // Setting Dialog Title\r\n        alertDialog.setTitle(\"GPS is settings\");\r\n\r\n        // Setting Dialog Message\r\n        alertDialog.setMessage(\"GPS is not enabled. Do you want to go to settings menu?\");\r\n\r\n        // On pressing Settings button\r\n        alertDialog.setPositiveButton(\"Settings\", new DialogInterface.OnClickListener() {\r\n            public void onClick(DialogInterface dialog,int which) {\r\n                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);\r\n                mContext.startActivity(intent);\r\n            }\r\n        });\r\n\r\n        // on pressing cancel button\r\n        alertDialog.setNegativeButton(\"Cancel\", new DialogInterface.OnClickListener() {\r\n            public void onClick(DialogInterface dialog, int which) {\r\n                dialog.cancel();\r\n            }\r\n        });\r\n        alertDialog.show();\r\n    }\r\n\r\n    @Override\r\n    public void onLocationChanged(Location location) {\r\n    }\r\n\r\n    @Override\r\n    public void onProviderDisabled(String provider) {\r\n    }\r\n\r\n    @Override\r\n    public void onProviderEnabled(String provider) {\r\n    }\r\n\r\n    @Override\r\n    public void onStatusChanged(String provider, int status, Bundle extras) {\r\n    }\r\n\r\n    @Override\r\n    public IBinder onBind(Intent arg0) {\r\n        return null;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Localisation.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Model/Localisation/Localisation.java	(date 1607785494321)
+@@ -1,218 +1,138 @@
+-package com.archilog.archi_log_demassue_piron.Model;
++package com.archilog.archi_log_demassue_piron.Model.Localisation;
+ 
+ import android.Manifest;
+ import android.app.Activity;
+-import android.app.AlertDialog;
+ import android.app.Service;
+ import android.content.Context;
+-import android.content.DialogInterface;
+ import android.content.Intent;
+ import android.content.pm.PackageManager;
+-import android.location.Location;
+-import android.location.LocationListener;
+-import android.location.LocationManager;
+-import android.os.Bundle;
++import android.location.*;
+ import android.os.IBinder;
+-import android.provider.Settings;
+-import android.util.Log;
+-
+ import androidx.core.app.ActivityCompat;
++import com.archilog.archi_log_demassue_piron.Model.House;
++import com.google.android.gms.maps.model.LatLng;
++
++import java.io.IOException;
++import java.util.List;
+ 
+ public class Localisation extends Service implements LocationListener {
+     private final Context mContext;
+ 
+-    // flag for GPS status
+-    private boolean isGPSEnabled = false;
+-
+-    // flag for network status
+-    private boolean isNetworkEnabled = false;
+-
+-    // flag for GPS status
+-    private boolean canGetLocation = false;
+-
+     private Location location;
++    private LocationManager locationManager;
+     private double latitude, longitude;
+ 
+-    // The minimum distance to change Updates in meters
+-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
+-
+-    // The minimum time between updates in milliseconds
+-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
+-
+-    // Declaring a Location Manager
+-    protected LocationManager locationManager;
++    private static final long MIN_DISTANCE_IN_METERS_CHANGE_FOR_UPDATES = 10;
++    private static final long MIN_TIME_BETWEEN_UPDATES = 1000 * 60 * 5;
+ 
+     public Localisation(Context context) {
+         this.mContext = context;
+         getLocation();
+     }
+ 
+-    public Location getLocation() {
++    private Location getLocation() {
+         try {
+             locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+ 
+-            // getting GPS status
+-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+-
+-            // getting network status
+-            isNetworkEnabled = locationManager
+-                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
++            boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
++            boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+ 
+             if (!isGPSEnabled && !isNetworkEnabled) {
+-                // no network provider is enabled
++                //Aucun service de localisation n'est activé
+             } else {
+-                this.canGetLocation = true;
+-                // First get location from Network Provider
+-                if (isNetworkEnabled) {
+-                    //check the network permission
+-                    if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+-                        ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+-                    }
+-                    locationManager.requestLocationUpdates(
+-                            LocationManager.NETWORK_PROVIDER,
+-                            MIN_TIME_BW_UPDATES,
+-                            MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
++                if(isNetworkEnabled) {
++                    checkPermissions(LocationManager.NETWORK_PROVIDER);
++                }
++                if(isGPSEnabled && location == null) {
++                    checkPermissions(LocationManager.GPS_PROVIDER);
++                }
++            }
++
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
++
++        return location;
++    }
++
++    private void checkPermissions(String providerType) {
++        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
++                ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
++            ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
++        }
++        locationManager.requestLocationUpdates(
++                providerType,
++                MIN_TIME_BETWEEN_UPDATES,
++                MIN_DISTANCE_IN_METERS_CHANGE_FOR_UPDATES, this);
+ 
+-                    Log.d("Network", "Network");
+-                    if (locationManager != null) {
+-                        location = locationManager
+-                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
++        if (locationManager != null) {
++            location = locationManager
++                    .getLastKnownLocation(providerType);
+ 
+-                        if (location != null) {
+-                            latitude = location.getLatitude();
+-                            longitude = location.getLongitude();
+-                        }
+-                    }
+-                }
++            if (location != null) {
++                latitude = location.getLatitude();
++                longitude = location.getLongitude();
++            }
++        }
++    }
+ 
+-                // if GPS Enabled get lat/long using GPS Services
+-                if (isGPSEnabled) {
+-                    if (location == null) {
+-                        //check the network permission
+-                        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+-                            ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+-                        }
+-                        locationManager.requestLocationUpdates(
+-                                LocationManager.GPS_PROVIDER,
+-                                MIN_TIME_BW_UPDATES,
+-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+-
+-                        Log.d("GPS Enabled", "GPS Enabled");
+-                        if (locationManager != null) {
+-                            location = locationManager
+-                                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+-
+-                            if (location != null) {
+-                                latitude = location.getLatitude();
+-                                longitude = location.getLongitude();
+-                            }
+-                        }
+-                    }
+-                }
+-            }
+-
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-
+-        return location;
+-    }
+-
+-    /**
+-     * Stop using GPS listener
+-     * Calling this function will stop using GPS in your app
+-     * */
+-
+-    public void stopUsingGPS(){
+-        if(locationManager != null){
+-            locationManager.removeUpdates(Localisation.this);
+-        }
+-    }
+-
+-    /**
+-     * Function to get latitude
+-     * */
+-
+     public double getLatitude(){
+         if(location != null){
+             latitude = location.getLatitude();
++        } else {
++            latitude = Double.NaN;
+         }
+ 
+-        // return latitude
+         return latitude;
+     }
+ 
+-    /**
+-     * Function to get longitude
+-     * */
+-
+     public double getLongitude(){
+         if(location != null){
+             longitude = location.getLongitude();
++        } else {
++            longitude = Double.NaN;
+         }
+ 
+-        // return longitude
+         return longitude;
+     }
+ 
+-    /**
+-     * Function to check GPS/wifi enabled
+-     * @return boolean
+-     * */
+-
+-    public boolean canGetLocation() {
+-        return this.canGetLocation;
+-    }
+-
+-    /**
+-     * Function to show settings alert dialog
+-     * On pressing Settings button will lauch Settings Options
+-     * */
+-
+-    public void showSettingsAlert(){
+-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+-
+-        // Setting Dialog Title
+-        alertDialog.setTitle("GPS is settings");
+-
+-        // Setting Dialog Message
+-        alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?");
+-
+-        // On pressing Settings button
+-        alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+-            public void onClick(DialogInterface dialog,int which) {
+-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+-                mContext.startActivity(intent);
+-            }
+-        });
+-
+-        // on pressing cancel button
+-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+-            public void onClick(DialogInterface dialog, int which) {
+-                dialog.cancel();
+-            }
+-        });
+-        alertDialog.show();
+-    }
+-
+     @Override
+     public void onLocationChanged(Location location) {
+     }
+ 
+-    @Override
+-    public void onProviderDisabled(String provider) {
+-    }
+-
+-    @Override
+-    public void onProviderEnabled(String provider) {
+-    }
+-
+-    @Override
+-    public void onStatusChanged(String provider, int status, Bundle extras) {
+-    }
+-
+     @Override
+     public IBinder onBind(Intent arg0) {
+         return null;
+     }
++
++    public double getDistanceInMetersBetweenTwoLatLng(House house) {
++        float[] results = new float[1];
++        double[] houseCoordinates = getLatitudeAndLongitudeFromHouse(house);
++        double startLat = getLatitude();
++        double startLong = getLongitude();
++
++        Location.distanceBetween(startLat, startLong, houseCoordinates[0], houseCoordinates[1], results);
++
++        return results[0];
++    }
++
++    private double[] getLatitudeAndLongitudeFromHouse(House house) {
++        double[] results = new double[2];
++
++        Geocoder geocoder = new Geocoder(mContext);
++
++        try {
++            List<Address> addresses;
++            addresses = geocoder.getFromLocationName(house.getLongFormattedAddress(), 1);
++
++            if(addresses.size() > 0) {
++                results[0] = addresses.get(0).getLatitude();
++                results[1] = addresses.get(0).getLongitude();
++            }
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++
++        return results;
++    }
+ }
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MainPageActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport android.view.MenuItem;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport androidx.fragment.app.Fragment;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\r\n\r\npublic class MainPageActivity extends AppCompatActivity {\r\n\r\n    private BottomNavigationView bottomNavigationView;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_mainpage);\r\n\r\n        getSupportFragmentManager().beginTransaction()\r\n                .replace(R.id.activity_mainpage_fragment_container, new HomeFragment()).commit();\r\n\r\n        bottomNavigationView = findViewById(R.id.activity_mainpage_bottom_navigation);\r\n        bottomNavigationView.setOnNavigationItemSelectedListener(\r\n                new BottomNavigationView.OnNavigationItemSelectedListener() {\r\n                    @Override\r\n                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n                        Fragment selectedFragment = null;\r\n\r\n                        switch (item.getItemId()) {\r\n                            case R.id.navigation_home:\r\n                                selectedFragment = new HomeFragment();\r\n                                break;\r\n                            case R.id.navigation_mail:\r\n                                selectedFragment = new UsersFragment();\r\n                                break;\r\n                            case R.id.navigation_map:\r\n                                selectedFragment = new MapFragment();\r\n                                break;\r\n                            case R.id.navigation_settings:\r\n                                selectedFragment = new SettingsFragment();\r\n                                break;\r\n                        }\r\n\r\n                        getSupportFragmentManager().beginTransaction()\r\n                                .replace(R.id.activity_mainpage_fragment_container, selectedFragment).commit();\r\n\r\n                        return true;\r\n                    }\r\n                });\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MainPageActivity.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/MainPageActivity.java	(date 1606563411791)
+@@ -1,4 +1,4 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+ import android.os.Bundle;
+ 
+@@ -14,13 +14,16 @@
+ 
+     private BottomNavigationView bottomNavigationView;
+ 
++    public MainPageActivity() {
++
++    }
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_mainpage);
+ 
+-        getSupportFragmentManager().beginTransaction()
+-                .replace(R.id.activity_mainpage_fragment_container, new HomeFragment()).commit();
++        switchFragment(new HomeFragment());
+ 
+         bottomNavigationView = findViewById(R.id.activity_mainpage_bottom_navigation);
+         bottomNavigationView.setOnNavigationItemSelectedListener(
+@@ -44,11 +47,16 @@
+                                 break;
+                         }
+ 
+-                        getSupportFragmentManager().beginTransaction()
+-                                .replace(R.id.activity_mainpage_fragment_container, selectedFragment).commit();
++                        switchFragment(selectedFragment);
++
++                        return true;
++                    }
++                });
++    }
++
++    public void switchFragment(Fragment fragment) {
++        getSupportFragmentManager().beginTransaction()
++                .replace(R.id.activity_mainpage_fragment_container, fragment).commit();
+ 
+-                        return true;
+-                    }
+-                });
+     }
+ }
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"colorPrimary\">#6200EE</color>\r\n    <color name=\"colorPrimaryDark\">#3700B3</color>\r\n    <color name=\"colorAccent\">#03DAC5</color>\r\n    <color name=\"colorWhite\">#FFFFFF</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/values/colors.xml	(date 1607175991107)
+@@ -4,4 +4,6 @@
+     <color name="colorPrimaryDark">#3700B3</color>
+     <color name="colorAccent">#03DAC5</color>
+     <color name="colorWhite">#FFFFFF</color>
++    <color name="colorDisabled">#5C5C5C</color>
++    <color name="colorTextDisabled">#000000</color>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MapFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.archilog.archi_log_demassue_piron.Activities;\r\n\r\nimport android.content.Intent;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.Canvas;\r\nimport android.graphics.drawable.Drawable;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.fragment.app.Fragment;\r\nimport com.archilog.archi_log_demassue_piron.Model.Localisation;\r\nimport com.archilog.archi_log_demassue_piron.R;\r\nimport com.google.android.gms.maps.CameraUpdateFactory;\r\nimport com.google.android.gms.maps.GoogleMap;\r\nimport com.google.android.gms.maps.OnMapReadyCallback;\r\nimport com.google.android.gms.maps.SupportMapFragment;\r\nimport com.google.android.gms.maps.model.*;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {\r\n    private Localisation localisation;\r\n    private List<Marker> markers;\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_map, container, false);\r\n        localisation = new Localisation(getActivity());\r\n        markers = new ArrayList<Marker>();\r\n\r\n        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()\r\n                .findFragmentById(R.id.fragment_map_map);\r\n        mapFragment.getMapAsync(this);\r\n\r\n        return view;\r\n    }\r\n\r\n    //TODO Pour chaque bien dont on s'occupe, il faut afficher un point sur la carte avec, pour chaque repère, un titre qui propose d'aller sur Google Maps\r\n    @Override\r\n    public void onMapReady(GoogleMap googleMap) {\r\n        Marker currentPosition = googleMap.addMarker(new MarkerOptions()\r\n                .position(new LatLng(localisation.getLatitude(), localisation.getLongitude()))\r\n                .icon(convertVectorImageToBitmapDescriptor(R.drawable.my_location))\r\n                .title(\"Vous êtes ici\")); //TODO à modifier pour la gestion du multilinguisme\r\n        Marker house = googleMap.addMarker(new MarkerOptions()\r\n                .position(new LatLng(50.188184, 5.950746))\r\n                .title(\"Maison de Jean Jadot\") //TODO à modifier avec les infos de la BD\r\n                .icon(convertVectorImageToBitmapDescriptor(R.drawable.home_other)));\r\n\r\n        markers.add(currentPosition);\r\n        markers.add(house);\r\n\r\n        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(localisation.getLatitude(), localisation.getLongitude())));\r\n\r\n        googleMap.setMinZoomPreference(8.0f);\r\n        googleMap.setMaxZoomPreference(20.0f);\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onMarkerClick(Marker marker) {\r\n        for(int i = 0; i < markers.size(); i++) {\r\n            if(markers.get(i).equals(marker)) {\r\n                Uri gmmIntentUri = Uri.parse(\"google.navigation:geo=\" + markers.get(i).getPosition().toString());\r\n                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);\r\n                mapIntent.setPackage(\"com.google.android.apps.maps\");\r\n\r\n                startActivity(mapIntent);\r\n            }\r\n        }\r\n\r\n        return true;\r\n    }\r\n\r\n    private BitmapDescriptor convertVectorImageToBitmapDescriptor(int vectorImage) {\r\n        Drawable vector = ContextCompat.getDrawable(getContext(), vectorImage);\r\n        vector.setBounds(0, 0, vector.getIntrinsicWidth(), vector.getIntrinsicHeight());\r\n        Bitmap bitmapImage = Bitmap.createBitmap(vector.getIntrinsicWidth(), vector.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);\r\n        Canvas canvas = new Canvas(bitmapImage);\r\n        vector.draw(canvas);\r\n\r\n        return BitmapDescriptorFactory.fromBitmap(bitmapImage);\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Activities/MapFragment.java	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/MapFragment.java	(date 1607954181065)
+@@ -1,88 +1,81 @@
+-package com.archilog.archi_log_demassue_piron.Activities;
++package com.archilog.archi_log_demassue_piron.Views;
+ 
+-import android.content.Intent;
+-import android.graphics.Bitmap;
+-import android.graphics.Canvas;
+-import android.graphics.drawable.Drawable;
+-import android.net.Uri;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import androidx.core.content.ContextCompat;
++import android.widget.Toast;
+ import androidx.fragment.app.Fragment;
+-import com.archilog.archi_log_demassue_piron.Model.Localisation;
++import com.archilog.archi_log_demassue_piron.Presenter.MapFragmentPresenter;
+ import com.archilog.archi_log_demassue_piron.R;
+ import com.google.android.gms.maps.CameraUpdateFactory;
+ import com.google.android.gms.maps.GoogleMap;
+ import com.google.android.gms.maps.OnMapReadyCallback;
+ import com.google.android.gms.maps.SupportMapFragment;
+-import com.google.android.gms.maps.model.*;
++import com.google.android.gms.maps.model.LatLng;
++import com.google.android.gms.maps.model.Marker;
++import com.google.android.gms.maps.model.MarkerOptions;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
++import static com.firebase.ui.auth.AuthUI.getApplicationContext;
++
+ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+-    private Localisation localisation;
+     private List<Marker> markers;
++    private MapFragmentPresenter mapFragmentPresenter;
++    private GoogleMap googleMap;
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_map, container, false);
+-        localisation = new Localisation(getActivity());
+-        markers = new ArrayList<Marker>();
++        mapFragmentPresenter = new MapFragmentPresenter(getContext(), this);
++        markers = new ArrayList<>();
+ 
+         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
+                 .findFragmentById(R.id.fragment_map_map);
+         mapFragment.getMapAsync(this);
+ 
++        mapFragmentPresenter.getServicingHouses();
++
+         return view;
+     }
+ 
+-    //TODO Pour chaque bien dont on s'occupe, il faut afficher un point sur la carte avec, pour chaque repère, un titre qui propose d'aller sur Google Maps
+     @Override
+-    public void onMapReady(GoogleMap googleMap) {
+-        Marker currentPosition = googleMap.addMarker(new MarkerOptions()
+-                .position(new LatLng(localisation.getLatitude(), localisation.getLongitude()))
+-                .icon(convertVectorImageToBitmapDescriptor(R.drawable.my_location))
+-                .title("Vous êtes ici")); //TODO à modifier pour la gestion du multilinguisme
+-        Marker house = googleMap.addMarker(new MarkerOptions()
+-                .position(new LatLng(50.188184, 5.950746))
+-                .title("Maison de Jean Jadot") //TODO à modifier avec les infos de la BD
+-                .icon(convertVectorImageToBitmapDescriptor(R.drawable.home_other)));
++    public void onMapReady(final GoogleMap googleMap) {
++        this.googleMap = googleMap;
++        LatLng currentLocalisation = mapFragmentPresenter.getLatLng();
++        if(currentLocalisation == null) {
++            Toast.makeText(getApplicationContext(), R.string.mapFragment_errorLocation_FR, Toast.LENGTH_LONG).show();
++        } else {
++            googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocalisation));
+ 
+-        markers.add(currentPosition);
+-        markers.add(house);
+-
+-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(localisation.getLatitude(), localisation.getLongitude())));
++            setMarkersOnTheMap(currentLocalisation, googleMap);
+ 
+-        googleMap.setMinZoomPreference(8.0f);
+-        googleMap.setMaxZoomPreference(20.0f);
++            googleMap.setMinZoomPreference(8.0f);
++            googleMap.setMaxZoomPreference(20.0f);
++        }
++    }
+ 
++    private void setMarkersOnTheMap(LatLng currentLocalisation, final GoogleMap googleMap) {
++        markers.add(googleMap.addMarker(new MarkerOptions()
++                .position(currentLocalisation)
++                .icon(mapFragmentPresenter.convertVectorImageToBitmapDescriptor(R.drawable.my_location))
++                .title("Vous êtes ici")));
+     }
+ 
+     @Override
+     public boolean onMarkerClick(Marker marker) {
+-        for(int i = 0; i < markers.size(); i++) {
+-            if(markers.get(i).equals(marker)) {
+-                Uri gmmIntentUri = Uri.parse("google.navigation:geo=" + markers.get(i).getPosition().toString());
+-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+-                mapIntent.setPackage("com.google.android.apps.maps");
+-
+-                startActivity(mapIntent);
+-            }
+-        }
++        mapFragmentPresenter.sendGoogleMapsIntent(markers, marker);
+ 
+         return true;
+     }
+ 
+-    private BitmapDescriptor convertVectorImageToBitmapDescriptor(int vectorImage) {
+-        Drawable vector = ContextCompat.getDrawable(getContext(), vectorImage);
+-        vector.setBounds(0, 0, vector.getIntrinsicWidth(), vector.getIntrinsicHeight());
+-        Bitmap bitmapImage = Bitmap.createBitmap(vector.getIntrinsicWidth(), vector.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+-        Canvas canvas = new Canvas(bitmapImage);
+-        vector.draw(canvas);
+-
+-        return BitmapDescriptorFactory.fromBitmap(bitmapImage);
++    public void setServicingHouses(double[] coordinates, String username) {
++        markers.add(googleMap.addMarker(new MarkerOptions()
++                .position(new LatLng(coordinates[0], coordinates[1]))
++                .title("Maison de " + username)
++                .icon(mapFragmentPresenter.convertVectorImageToBitmapDescriptor(R.drawable.home_other))));
+     }
++
+ }
+Index: app/src/main/res/layout/activity_infosownhouse.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_infosownhouse.xml	(date 1607450355617)
++++ app/src/main/res/layout/activity_infosownhouse.xml	(date 1607450355617)
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout
++        xmlns:android="http://schemas.android.com/apk/res/android"
++        xmlns:app="http://schemas.android.com/apk/res-auto"
++        xmlns:tools="http://schemas.android.com/tools"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++    <TextView
++        android:text="TextView"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:id="@+id/activity_infosownhouse_houseFrom"
++        android:textAlignment="center"
++        android:textStyle="bold"
++        android:textSize="20sp"/>
++
++    <TextView
++        android:text="TextView"
++        android:paddingBottom="20sp"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:id="@+id/activity_infosownhouse_houseFromAddress"
++        android:textAlignment="center"
++        android:layout_below="@+id/activity_infosownhouse_houseFrom"/>
++
++   <ExpandableListView
++        android:id="@+id/activity_infosownhouse_expandableListViewForPassages"
++        android:layout_width="match_parent"
++        android:indicatorLeft="?android:expandableListPreferredChildIndicatorLeft"
++        android:divider="@android:color/darker_gray"
++        android:dividerHeight="0.5dp"
++        android:layout_height="wrap_content"
++        android:layout_below="@id/activity_infosownhouse_houseFromAddress"/>
++
++    <ExpandableListView
++        android:paddingTop="20sp"
++        android:id="@+id/activity_infosownhouse_expandableListViewForServants"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:indicatorLeft="?android:expandableListPreferredChildIndicatorLeft"
++        android:divider="@android:color/darker_gray"
++        android:dividerHeight="0.5dp"
++        android:layout_below="@id/activity_infosownhouse_expandableListViewForPassages"/>
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/archilog/archi_log_demassue_piron/Views/DetailHouseActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/archilog/archi_log_demassue_piron/Views/DetailHouseActivity.java	(date 1607953374398)
++++ app/src/main/java/com/archilog/archi_log_demassue_piron/Views/DetailHouseActivity.java	(date 1607953374398)
+@@ -0,0 +1,100 @@
++package com.archilog.archi_log_demassue_piron.Views;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.*;
++import androidx.appcompat.app.AppCompatActivity;
++import com.archilog.archi_log_demassue_piron.Presenter.DetailHousePresenter;
++import com.archilog.archi_log_demassue_piron.R;
++
++public class DetailHouseActivity extends AppCompatActivity implements View.OnClickListener {
++
++    private TextView textView_houseFrom, textView_address, textView_instructions;
++    private Button button_iTakeCare, button_sendNote;
++    private EditText editText_descriptionPassage, editText_noteDescription;
++    private RatingBar ratingBar;
++
++    private DetailHousePresenter detailHousePresenter;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_housedetails);
++
++        textView_houseFrom = findViewById(R.id.activity_housedetails_houseFrom);
++        textView_address = findViewById(R.id.activity_housedetails_houseFromAddress);
++        textView_instructions = findViewById(R.id.activity_housedetails_instructions);
++        button_iTakeCare = findViewById(R.id.activity_housedetails_btn_takeCare);
++        button_sendNote = findViewById(R.id.activity_housedetails_sendNote);
++        ratingBar = findViewById(R.id.activity_housedetails_ratingBar);
++        editText_noteDescription = findViewById(R.id.activity_housedetails_noteDescription);
++        button_iTakeCare.setOnClickListener(this);
++        button_sendNote.setOnClickListener(this);
++        editText_descriptionPassage = findViewById(R.id.activity_housedetails_descriptionPassage);
++
++        detailHousePresenter = new DetailHousePresenter(this, this, getHouseIdFromIntentExtra());
++
++        detailHousePresenter.getHousePublicProfile();
++    }
++
++    private String getHouseIdFromIntentExtra() {
++        Intent intent = getIntent();
++        return intent.getStringExtra("houseId");
++    }
++
++    public void setTextsForTheView(String houseAddress, String username, String instructions, String pictureURL) {
++        textView_address.setText(houseAddress);
++        textView_houseFrom.setText("Maison de " + username);
++        textView_instructions.setText(instructions);
++        setButtonDependingOnLocalisation();
++    }
++
++    private void setButtonDependingOnLocalisation() {
++        if(detailHousePresenter.isCurrentUserNearbyTheServicingHouse()) {
++            button_iTakeCare.setEnabled(false);
++            button_iTakeCare.setBackgroundColor(R.color.colorDisabled);
++            button_iTakeCare.setTextColor(R.color.colorTextDisabled);
++        }
++    }
++
++    private void sendPassage() {
++        String descriptionPassage = editText_descriptionPassage.getText().toString();
++        String houseId = getHouseIdFromIntentExtra();
++
++        detailHousePresenter.sendPassage(descriptionPassage, houseId);
++    }
++
++    private void sendNote() {
++        String houseId = getHouseIdFromIntentExtra();
++        int note = (int) ratingBar.getRating();
++        String description = editText_noteDescription.getText().toString();
++
++        detailHousePresenter.sendNote(houseId, description, note);
++    }
++
++    public void resetPassageDescription() {
++        editText_descriptionPassage.setText("");
++    }
++
++    public void resetNoteRatingBarAndDescription() {
++        editText_noteDescription.setText("");
++        ratingBar.setRating(0);
++    }
++
++    public void printToast(String message) {
++        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
++    }
++
++    @Override
++    public void onClick(View view) {
++        switch (view.getId()) {
++            case R.id.activity_housedetails_btn_takeCare:
++                sendPassage();
++                break;
++            case R.id.activity_housedetails_sendNote:
++                sendNote();
++                break;
++        }
++    }
++}
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\napply plugin: 'com.google.gms.google-services'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.0\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.archilog\"\r\n        minSdkVersion 24\r\n        targetSdkVersion 26\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n\r\n        // Read the API key from ./secure.properties into R.string.maps_api_key\r\n        def secureProps = new Properties()\r\n        if (file(\"../secure.properties\").exists()) {\r\n            file(\"../secure.properties\")?.withInputStream { secureProps.load(it) }\r\n        }\r\n        resValue \"string\", \"maps_api_key\", (secureProps.getProperty(\"MAPS_API_KEY\") ?: \"\")\r\n\r\n        // To add your Maps API key to this project:\r\n        // 1. Create a file ./secure.properties\r\n        // 2. Add this line, where YOUR_API_KEY is your API key:\r\n        //        MAPS_API_KEY=YOUR_API_KEY\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation platform('com.google.firebase:firebase-bom:26.0.0')\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'com.google.android.material:material:1.2.1'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'\r\n    implementation 'androidx.navigation:navigation-fragment:2.3.0'\r\n    implementation 'androidx.navigation:navigation-ui:2.3.0'\r\n    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n\r\n    implementation 'com.google.firebase:firebase-auth:19.4.0'\r\n    implementation 'com.google.firebase:firebase-database:19.4.0'\r\n    implementation 'com.google.firebase:firebase-firestore:21.6.0'\r\n    implementation 'com.google.firebase:firebase-database'\r\n    implementation 'com.firebaseui:firebase-ui-auth:6.4.0'\r\n    implementation 'com.google.firebase:firebase-inappmessaging-display'\r\n    implementation 'com.google.firebase:firebase-analytics'\r\n    implementation 'com.google.android.gms:play-services-basement:17.4.0'\r\n\r\n    implementation 'com.android.volley:volley:1.1.1'\r\n\r\n    implementation 'com.google.android.gms:play-services-maps:17.0.0'\r\n    implementation 'com.google.android.gms:play-services-auth:19.0.0'\r\n\r\n    implementation 'com.google.code.gson:gson:2.8.6'\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/build.gradle	(date 1607612018965)
+@@ -13,17 +13,12 @@
+         versionName "1.0"
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+ 
+-        // Read the API key from ./secure.properties into R.string.maps_api_key
+         def secureProps = new Properties()
+         if (file("../secure.properties").exists()) {
+             file("../secure.properties")?.withInputStream { secureProps.load(it) }
+         }
+         resValue "string", "maps_api_key", (secureProps.getProperty("MAPS_API_KEY") ?: "")
+ 
+-        // To add your Maps API key to this project:
+-        // 1. Create a file ./secure.properties
+-        // 2. Add this line, where YOUR_API_KEY is your API key:
+-        //        MAPS_API_KEY=YOUR_API_KEY
+     }
+ 
+     buildTypes {
+@@ -53,8 +48,8 @@
+     implementation 'com.google.firebase:firebase-database'
+     implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
+     implementation 'com.google.firebase:firebase-inappmessaging-display'
+-    implementation 'com.google.firebase:firebase-analytics'
+-    implementation 'com.google.android.gms:play-services-basement:17.4.0'
++    implementation 'com.google.firebase:firebase-analytics:18.0.0'
++    implementation 'com.google.android.gms:play-services-basement:17.5.0'
+ 
+     implementation 'com.android.volley:volley:1.1.1'
+ 
+Index: app/src/main/res/layout/activity_signin.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".Activities.SignInActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/activity_signin_titleSignIn\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"50dp\"\r\n        android:text=\"@string/signInActivity_title_FR\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/activity_signin_email\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"8dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:hint=\"@string/signInActivity_email_FR\"\r\n        android:inputType=\"textEmailAddress\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/activity_signin_password\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_signin_titleSignIn\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/activity_signin_password\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"8dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:hint=\"@string/signInActivity_password_FR\"\r\n        android:inputType=\"textPassword\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/activity_signin_btn_login\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_signin_email\" />\r\n\r\n\r\n    <Button\r\n        android:id=\"@+id/activity_signin_btn_login\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"8dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:background=\"@color/colorPrimaryDark\"\r\n        android:text=\"@string/signInActivity_title_FR\"\r\n        android:textColor=\"#fff\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_signin_password\"></Button>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_signin.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/activity_signin.xml	(date 1606496257979)
+@@ -5,7 +5,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".Activities.SignInActivity">
++    tools:context=".Views.SignInActivity">
+ 
+     <TextView
+         android:id="@+id/activity_signin_titleSignIn"
+Index: app/src/main/res/menu/bottom_navigation.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<menu xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <item\r\n        android:id=\"@+id/navigation_home\"\r\n        android:icon=\"@drawable/home\"\r\n        android:title=\"@string/bottomNavigation_home_FR\" />\r\n    <item\r\n        android:id=\"@+id/navigation_mail\"\r\n        android:icon=\"@drawable/mail\"\r\n        android:title=\"@string/bottomNavigation_messages_FR\" />\r\n    <!-- TODO Mettre une pastille rouge en haut du message pour dire qu'on a reçu une notification -->\r\n    <item\r\n        android:id=\"@+id/navigation_map\"\r\n        android:icon=\"@drawable/map\"\r\n        android:title=\"@string/bottomNavigation_map_FR\" />\r\n\r\n    <item\r\n        android:id=\"@+id/navigation_settings\"\r\n        android:icon=\"@drawable/settings\"\r\n        android:title=\"@string/bottomNavigation_settings_FR\" />\r\n\r\n</menu>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/bottom_navigation.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/menu/bottom_navigation.xml	(date 1608026775975)
+@@ -8,7 +8,7 @@
+         android:id="@+id/navigation_mail"
+         android:icon="@drawable/mail"
+         android:title="@string/bottomNavigation_messages_FR" />
+-    <!-- TODO Mettre une pastille rouge en haut du message pour dire qu'on a reçu une notification -->
++
+     <item
+         android:id="@+id/navigation_map"
+         android:icon="@drawable/map"
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".Activities.MainActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/activity_main_mainTitle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"50dp\"\r\n        android:text=\"@string/mainActivity_mainTitle_FR\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/activity_main_howToAccess\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"32dp\"\r\n        android:text=\"@string/mainActivity_explanations_FR\"\r\n        android:textAlignment=\"center\"\r\n        android:textSize=\"24sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_main_mainTitle\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/activity_main_signIn\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_centerInParent=\"true\"\r\n        android:layout_marginTop=\"32dp\"\r\n        android:layout_weight=\"1\"\r\n        android:text=\"@string/mainActivity_signIn_FR\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_main_howToAccess\" />\r\n\r\n    <com.google.android.gms.common.SignInButton\r\n        android:id=\"@+id/activity_main_signInButtonWithGoogle\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_centerInParent=\"true\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_weight=\"1\"\r\n        android:visibility=\"visible\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/activity_main_signIn\"\r\n        tools:visibility=\"gone\" />\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/activity_main.xml	(date 1606496258071)
+@@ -5,7 +5,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".Activities.MainActivity">
++    tools:context=".Views.MainActivity">
+ 
+     <TextView
+         android:id="@+id/activity_main_mainTitle"
+Index: app/src/main/res/layout/fragment_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n            android:id=\"@+id/fragment_settings_title\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/settings_title_FR\"\r\n            android:textSize=\"36sp\"\r\n            android:textStyle=\"bold\"\r\n            android:textAlignment=\"center\"\r\n            android:layout_alignParentEnd=\"true\" android:layout_marginTop=\"10dp\"/>\r\n\r\n    <Button\r\n            android:id=\"@+id/fragment_settings_disconnect\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"50dp\"\r\n            android:layout_below=\"@+id/fragment_settings_title\"\r\n            android:text=\"@string/settings_disconnect_FR\"\r\n            android:layout_marginRight=\"5dp\" android:layout_marginLeft=\"5dp\" android:layout_marginTop=\"40dp\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_settings.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/res/layout/fragment_settings.xml	(date 1607080718505)
+@@ -5,21 +5,24 @@
+     android:layout_height="match_parent">
+ 
+     <TextView
+-            android:id="@+id/fragment_settings_title"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:text="@string/settings_title_FR"
+-            android:textSize="36sp"
+-            android:textStyle="bold"
+-            android:textAlignment="center"
+-            android:layout_alignParentEnd="true" android:layout_marginTop="10dp"/>
++        android:id="@+id/fragment_settings_title"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/settings_title_FR"
++        android:textSize="36sp"
++        android:textStyle="bold"
++        android:textAlignment="center"
++        android:layout_alignParentEnd="true"
++        android:layout_marginTop="10dp"/>
+ 
+     <Button
+-            android:id="@+id/fragment_settings_disconnect"
+-            android:layout_width="match_parent"
+-            android:layout_height="50dp"
+-            android:layout_below="@+id/fragment_settings_title"
+-            android:text="@string/settings_disconnect_FR"
+-            android:layout_marginRight="5dp" android:layout_marginLeft="5dp" android:layout_marginTop="40dp"/>
++        android:id="@+id/fragment_settings_disconnect"
++        android:layout_width="match_parent"
++        android:layout_height="50dp"
++        android:layout_below="@+id/fragment_settings_title"
++        android:text="@string/settings_disconnect_FR"
++        android:layout_marginRight="5dp"
++        android:layout_marginLeft="5dp"
++        android:layout_marginTop="40dp"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.archilog.archi_log_demassue_piron\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission. ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.gms.version\"\r\n            android:value=\"@integer/google_play_services_version\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/maps_api_key\" />\r\n\r\n        <activity\r\n            android:name=\".Activities.MainActivity\"\r\n            android:label=\"@string/app_name\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n\r\n\r\n        <activity\r\n            android:name=\".Activities.SignInActivity\"\r\n            android:parentActivityName=\".Activities.MainActivity\" />\r\n\r\n        <activity android:name=\".Activities.MainPageActivity\" />\r\n\r\n        <activity android:name=\".Activities.MessagesActivity\" />\r\n\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 895e52a6d2be72f1b2c155b5480701f35bd96d1a)
++++ app/src/main/AndroidManifest.xml	(date 1607455535051)
+@@ -23,7 +23,7 @@
+             android:value="@string/maps_api_key" />
+ 
+         <activity
+-            android:name=".Activities.MainActivity"
++            android:name=".Views.MainActivity"
+             android:label="@string/app_name">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+@@ -34,12 +34,18 @@
+ 
+ 
+         <activity
+-            android:name=".Activities.SignInActivity"
+-            android:parentActivityName=".Activities.MainActivity" />
++            android:name=".Views.SignInActivity"
++            android:parentActivityName=".Views.MainActivity" />
++
++        <activity android:name=".Views.MainPageActivity" />
+ 
+-        <activity android:name=".Activities.MainPageActivity" />
++        <activity android:name=".Views.MessagesActivity" />
+ 
+-        <activity android:name=".Activities.MessagesActivity" />
++        <activity android:name=".Views.InfosOfOwnHouseActivity" />
++
++        <activity android:name=".Views.DetailHouseActivity" />
++
++        <activity android:name=".Views.RateServantActivity" />
+ 
+     </application>
+ 

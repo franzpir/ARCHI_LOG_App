@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "882191147919",
+    "firebase_url": "https://archi-log-demassue-piron.firebaseio.com",
+    "project_id": "archi-log-demassue-piron",
+    "storage_bucket": "archi-log-demassue-piron.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882191147919:android:36d3b7819c7b7546dae1fa",
+        "android_client_info": {
+          "package_name": "com.example.archilog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882191147919-f05hnprd6kkj6pr09ojkoinlmfslgl3q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.archilog",
+            "certificate_hash": "59a1e52a4fa5de75c098d2e901e335b59b2253e6"
+          }
+        },
+        {
+          "client_id": "882191147919-jkgb6m2fv16f5mevb2rqesdfqffiqfbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFQt9Ea_OFsRww_Hwhk6-3EJ50tcE-FnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882191147919-jkgb6m2fv16f5mevb2rqesdfqffiqfbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
